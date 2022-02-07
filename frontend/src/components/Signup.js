@@ -11,12 +11,15 @@ const Signup = () => {
     setUser({ ...user, [name]: value });
   };
   const handleSubmit = async (e) => {
+   alert(user.name);
+    if(user.password!=user.confirmpass){
+      alert("password dont't match");return ;
+    }
     e.preventDefault();
     const user = {
       name:user.name,
-      password:user.password,
       email:user.email,
-      confirmpass:user.confirmpass,
+      password:user.password,
     };
     try {
       const res = await axios.post("/login", user);
