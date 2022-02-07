@@ -5,17 +5,18 @@ import { Link, useNavigate } from "react-router-dom";
 
 const Signup = () => {
   const navigate = useNavigate();
-  const [name, setName] = useState("");
-  const [password, setPassword] = useState("");
-  const [email, setEmail] = useState("");
-  const [confirmpass, setConfirmpass] = useState("");
-
+  const [user, setUser] = useState({ name: "", email: "", password: "",confirmpass:"" });
+  const onChangeInput = (e) => {
+    const { name, value } = e.target;
+    setUser({ ...user, [name]: value });
+  };
   const handleSubmit = async (e) => {
+    e.preventDefault();
     const user = {
-      name,
-      password,
-      email,
-      confirmpass,
+      name:user.name,
+      password:user.password,
+      email:user.email,
+      confirmpass:user.confirmpass,
     };
     try {
       const res = await axios.post("/login", user);
@@ -43,6 +44,7 @@ const Signup = () => {
             width: "95vh",
             padding: "10vh",
           }}
+          onSubmit={handleSubmit}
         >
           <input
             style={{ padding: "1vh", marginBottom: "7vh", marginLeft: "17vh" }}
@@ -50,10 +52,8 @@ const Signup = () => {
             type="name"
             placeholder="Name..."
             label="Name"
-            value={name}
-            onChange={(e) => {
-              setName(e.target.value);
-            }}
+            value={user.name}
+            onChange={onChangeInput}
             required
           />
           <input
@@ -62,10 +62,8 @@ const Signup = () => {
             type="email"
             placeholder="Email..."
             label="Email"
-            value={email}
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
+            value={user.email}
+            onChange={onChangeInput}
             required
           />
           <input
@@ -74,10 +72,8 @@ const Signup = () => {
             type="password"
             placeholder="Password..."
             label="Password"
-            value={password}
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
+            value={user.password}
+            onChange={onChangeInput}
             required
           />
           <input
@@ -86,10 +82,8 @@ const Signup = () => {
             type="confirmpass"
             placeholder="Confirm Password..."
             label="confirm_Password"
-            value={confirmpass}
-            onChange={(e) => {
-              setConfirmpass(e.target.value);
-            }}
+            value={user.confirmpass}
+            onChange={onChangeInput}
             required
           />
           <button
@@ -102,7 +96,6 @@ const Signup = () => {
             }}
             variant="contained"
             type="submit"
-            onClick={handleSubmit}
           >
             Sign up
           </button>
