@@ -9,7 +9,9 @@ app.use(express.urlencoded({ extended: false }));
 
 app.post("/login", async (req, res) => {
   const { name, email, password } = req.body;
-
+  console.log(name);
+  console.log(email);
+  console.log(password);
   const user = new User({ name, email, password });
   try {
     await user.save();

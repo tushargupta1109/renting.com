@@ -5,29 +5,28 @@ import { Link, useNavigate } from "react-router-dom";
 
 const Signup = () => {
   const navigate = useNavigate();
-  const [user, setUser] = useState({ name: "", email: "", password: "",confirmpass:"" });
+  const [user, setUser] = useState({ name: "", email: "", password: "" });
   const onChangeInput = (e) => {
     const { name, value } = e.target;
     setUser({ ...user, [name]: value });
   };
   const handleSubmit = async (e) => {
-   alert(user.name);
-    if(user.password!=user.confirmpass){
-      alert("password dont't match");return ;
-    }
+   alert('a');
+    // if(user.password!=user.confirmpass){
+    //   alert("password dont't match");return ;
+    // }
     e.preventDefault();
-    const user = {
+    const users = {
       name:user.name,
       email:user.email,
       password:user.password,
     };
     try {
-      const res = await axios.post("/login", user);
+      const res = await axios.post("/login", users);
+      console.log(user);
       navigate("/home");
-      alert("b");
-      alert(res.data.msg);
     } catch (err) {
-      alert("c");
+      console.log(user);
       alert(err);
     }
   };
@@ -79,7 +78,7 @@ const Signup = () => {
             onChange={onChangeInput}
             required
           />
-          <input
+          {/* <input
             style={{ padding: "1vh", marginBottom: "7vh", marginLeft: "17vh" }}
             name="confirmpass"
             type="confirmpass"
@@ -88,7 +87,7 @@ const Signup = () => {
             value={user.confirmpass}
             onChange={onChangeInput}
             required
-          />
+          /> */}
           <button
             style={{
               backgroundColor: "#080808",
