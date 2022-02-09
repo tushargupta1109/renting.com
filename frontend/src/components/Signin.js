@@ -18,18 +18,22 @@ const Signin = () => {
       email: user.email,
       password: user.password,
     };
+
     try {
       const res = await axios.post("/signin", userinfo);
       alert("Logged in Successfully!");
       setUser({ email: "", password: "" });
+      
+      localStorage.setItem("tokenStore", res.data);
       navigate("/home");
+      
     } catch (err) {
-      alert(err)
+      alert(err);
     }
   };
   return (
     <>
-     <Header2/>
+      <Header2 />
       <div style={{ paddingTop: "20vh" }}>
         <h2 style={{ marginLeft: "27vh" }}>I already have an account</h2>
         <span style={{ marginLeft: "33vh" }}>

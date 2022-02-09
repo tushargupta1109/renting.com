@@ -21,6 +21,10 @@ const houseSchema = mongoose.Schema({
     type: Number,
     required: true,
   },
+  owner:{
+    type:mongoose.Schema.Types.ObjectId,
+    required:true,
+  }
 });
 
 const House = mongoose.model("house", houseSchema);

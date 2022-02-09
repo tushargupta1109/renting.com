@@ -1,8 +1,10 @@
 import axios from "axios";
 import React, { useState } from "react";
-import Header2 from "./header2";import { Link, useNavigate } from "react-router-dom";
+import Header2 from "./header2";
+import { Link, useNavigate } from "react-router-dom";
 
-const Add_house = () => {  const navigate=useNavigate();
+const Add_house = () => {
+  const navigate = useNavigate();
   const [house, setHouse] = useState({
     address: "",
     city: "",
@@ -17,7 +19,8 @@ const Add_house = () => {  const navigate=useNavigate();
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault(); 
+    e.preventDefault();
+
     const houseinfo = {
       address: house.address,
       city: house.city,
@@ -25,12 +28,24 @@ const Add_house = () => {  const navigate=useNavigate();
       detail: house.detail,
       mobile: house.mobile,
     };
-    try {
-      const res = await axios.post("/add", houseinfo);
-      alert("Added Succesfully!");
-      navigate("/home");
-    } catch (err) {
-      alert(err);
+
+    const token = localStorage.getItem("tokenStore");
+    alert(token);
+    if (token) {
+      try {
+        const res = await axios.post("/add", {
+          method: "POST",
+          body: houseinfo,
+          headers: {
+            Authorization: token,
+          },
+        });
+
+        alert("Added Succesfully!");
+        navigate("/home");
+      } catch (err) {
+        alert(err);
+      }
     }
   };
   return (

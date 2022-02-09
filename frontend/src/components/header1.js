@@ -2,8 +2,22 @@ import React from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-
 const header1 = () => {
+  const remove = async () => {
+    const token = localStorage.getItem("tokenStore");
+    try {
+      await axios.delete("/remove", {
+        method: "DELETE",
+        headers: {
+          Authorization: token,
+        },
+      });
+      alert("refresh the page");
+    } catch (e) {
+      alert(e);
+    }
+  };
+
   return (
     <>
       <div
@@ -26,7 +40,7 @@ const header1 = () => {
             Add House
           </Link>
         </p>
-        <p style={{ marginTop: "2vh" }} >
+        <p style={{ marginTop: "2vh" }} onClick={remove}>
           Remove House
         </p>
         <p style={{ marginTop: "2vh" }}>

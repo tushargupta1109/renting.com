@@ -1,6 +1,7 @@
 const express = require("express");
 const User = require("../models/user_model");
 const router = express.Router();
+const jwt=require("jsonwebtoken");
 
 router.post("/signup", async (req, res) => {
   const { name, email, password } = req.body;
@@ -19,7 +20,8 @@ router.post("/signin", async (req, res) => {
       req.body.email,
       req.body.password
     );
-    res.send(user);
+    const token = jwt.sign({ _id: user._id.toString() }, "renting");
+    res.send(token);
   } catch (e) {
     console.log(e)
     res.status(400).json({ message: e });
