@@ -1,38 +1,41 @@
 import axios from "axios";
 import React, { useState } from "react";
-import Header from "./header";
-import { Link, useNavigate } from "react-router-dom";
+import Header2 from "./header2";
 
 const Signup = () => {
-  const navigate = useNavigate();
-  const [user, setUser] = useState({ name: "", email: "", password: "" });
+  const [user, setUser] = useState({
+    name: "",
+    email: "",
+    password: "",
+    confirmpass: "",
+  });
+  
   const onChangeInput = (e) => {
     const { name, value } = e.target;
     setUser({ ...user, [name]: value });
   };
+
   const handleSubmit = async (e) => {
-   alert('a');
-    // if(user.password!=user.confirmpass){
-    //   alert("password dont't match");return ;
-    // }
+    if (user.password !== user.confirmpass) {
+      alert("password dont't match");
+      return;
+    }
     e.preventDefault();
-    const users = {
-      name:user.name,
-      email:user.email,
-      password:user.password,
+    const userinfo = {
+      name: user.name,
+      email: user.email,
+      password: user.password,
     };
     try {
-      const res = await axios.post("/login", users);
-      console.log(user);
-      navigate("/home");
+      const res = await axios.post("/signup", userinfo);
+      alert("registered Succesfully, Login to enter!");
     } catch (err) {
-      console.log(user);
       alert(err);
     }
   };
   return (
     <>
-      <Header />
+      <Header2 />
       <div style={{ paddingTop: "20vh" }}>
         <h2 style={{ marginLeft: "27vh" }}>I do not have a account</h2>
         <span style={{ marginLeft: "33vh" }}>
@@ -78,7 +81,7 @@ const Signup = () => {
             onChange={onChangeInput}
             required
           />
-          {/* <input
+          <input
             style={{ padding: "1vh", marginBottom: "7vh", marginLeft: "17vh" }}
             name="confirmpass"
             type="confirmpass"
@@ -87,7 +90,7 @@ const Signup = () => {
             value={user.confirmpass}
             onChange={onChangeInput}
             required
-          /> */}
+          />
           <button
             style={{
               backgroundColor: "#080808",

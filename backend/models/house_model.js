@@ -13,14 +13,18 @@ const houseSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  mobile: {
-    type: Number,
-    required: true,
-  },
   detail: {
     type: String,
     required: true,
   },
+  mobile: {
+    type: Number,
+    required: true,
+  },
+  owner:{
+    type:String,
+    required:true,
+  }
 });
 
 const House = mongoose.model("house", houseSchema);

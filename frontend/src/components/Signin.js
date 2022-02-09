@@ -1,12 +1,36 @@
 import React, { useState } from "react";
-import Header from "./header";
+import Header2 from "./header2";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 
-const Signin = () => {
-  const [pass, setPass] = useState("");
-  const [email, setEmail] = useState("");
+const Signin = ({setPersonid}) => {
+  const navigate = useNavigate();
+  const [user, setUser] = useState({ email: "", password: "" });
+
+  const onChangeInput = (e) => {
+    const { name, value } = e.target;
+    setUser({ ...user, [name]: value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const userinfo = {
+      email: user.email,
+      password: user.password,
+    };
+    try {
+      const res = await axios.post("/signin", userinfo);
+      alert("Logged in Successfully!");
+      setPersonid(user.email);alert(user.email);
+      setUser({ email: "", password: "" });
+      navigate("/home");
+    } catch (err) {
+      alert(err)
+    }
+  };
   return (
     <>
-      <Header />
+     <Header2/>
       <div style={{ paddingTop: "20vh" }}>
         <h2 style={{ marginLeft: "27vh" }}>I already have an account</h2>
         <span style={{ marginLeft: "33vh" }}>
@@ -20,6 +44,7 @@ const Signin = () => {
             width: "95vh",
             padding: "10vh",
           }}
+          onSubmit={handleSubmit}
         >
           <input
             style={{ padding: "1vh", marginBottom: "7vh", marginLeft: "18vh" }}
@@ -27,22 +52,18 @@ const Signin = () => {
             type="email"
             placeholder="Email..."
             label="Email"
-            value={email}
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
+            value={user.email}
+            onChange={onChangeInput}
             required
           />
           <input
             style={{ padding: "1vh", marginBottom: "7vh", marginLeft: "18vh" }}
-            name="pass"
+            name="password"
             type="password"
             placeholder="Password..."
             label="Password"
-            value={pass}
-            onChange={(e) => {
-              setPass(e.target.value);
-            }}
+            value={user.password}
+            onChange={onChangeInput}
             required
           />
           <button

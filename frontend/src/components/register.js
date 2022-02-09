@@ -2,10 +2,10 @@ import React from 'react';
 import Signup from './Signup';
 import Signin from './Signin';
 
-const register=()=>{
+const register=({setPersonid})=>{
     return(
         <div style={{display:'flex'}}>
-            <Signin/>
+            <Signin setPersonid={setPersonid}/>
             <Signup/>
         </div>
     )
