@@ -21,10 +21,6 @@ const houseSchema = mongoose.Schema({
     type: Number,
     required: true,
   },
-  owner:{
-    type:String,
-    required:true,
-  }
 });
 
 const House = mongoose.model("house", houseSchema);

@@ -3,7 +3,7 @@ import Header2 from "./header2";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const Signin = ({setPersonid}) => {
+const Signin = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState({ email: "", password: "" });
 
@@ -21,7 +21,6 @@ const Signin = ({setPersonid}) => {
     try {
       const res = await axios.post("/signin", userinfo);
       alert("Logged in Successfully!");
-      setPersonid(user.email);alert(user.email);
       setUser({ email: "", password: "" });
       navigate("/home");
     } catch (err) {

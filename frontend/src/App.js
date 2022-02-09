@@ -6,15 +6,14 @@ import Add_house from "./components/Add_house";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 const App = () => {
-  const [personid,setPersonid]=useState('' );
   return (
     <div>
       <Router>
         <div>
           <Routes>
-            <Route exact path="/" element={<Register setPersonid={setPersonid} />} />
-            <Route exact path="/home" element={<Home personid={personid} />} />
-            <Route exact path="/add" element={<Add_house personid={personid}/>} />
+            <Route exact path="/" element={<Register />} />
+            <Route exact path="/home" element={<Home />} />
+            <Route exact path="/add" element={<Add_house />} />
           </Routes>
         </div>
       </Router>

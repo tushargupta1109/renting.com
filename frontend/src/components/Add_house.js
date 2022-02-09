@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import Header2 from "./header2";import { Link, useNavigate } from "react-router-dom";
 
-const Add_house = ({personid}) => {  const navigate=useNavigate();
+const Add_house = () => {  const navigate=useNavigate();
   const [house, setHouse] = useState({
     address: "",
     city: "",
@@ -24,7 +24,6 @@ const Add_house = ({personid}) => {  const navigate=useNavigate();
       rent: house.rent,
       detail: house.detail,
       mobile: house.mobile,
-      owner:personid,
     };
     try {
       const res = await axios.post("/add", houseinfo);

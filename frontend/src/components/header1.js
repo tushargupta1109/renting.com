@@ -3,19 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 
-const header1 = ({ personid }) => {
-  const remove = async () => {
-    const object={
-      id:personid,
-    }
-    try {
-      const res = await axios.delete("/remove", object);
-      alert("removed successfully");
-    } catch (e) {
-      alert(e);
-    }
-  };
-
+const header1 = () => {
   return (
     <>
       <div
@@ -38,7 +26,7 @@ const header1 = ({ personid }) => {
             Add House
           </Link>
         </p>
-        <p style={{ marginTop: "2vh" }} onClick={remove}>
+        <p style={{ marginTop: "2vh" }} >
           Remove House
         </p>
         <p style={{ marginTop: "2vh" }}>
