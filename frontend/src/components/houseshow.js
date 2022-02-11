@@ -17,7 +17,7 @@ const houseshow = (house) => {
   };
   return (
     <>
-      <div className="card" style={{ width: "70vh" }}>
+      <div className="card" style={{ width: "70vh" ,zIndex:'1'}}>
         <img className="card-img-top" src={house.house.img} />
         <div className="card-body" style={{ fontSize: "4vh" }}>
           <ul>

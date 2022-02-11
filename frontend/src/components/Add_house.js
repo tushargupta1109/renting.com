@@ -45,7 +45,7 @@ const Add_house = () => {
   return (
     <>
       <Header2 />
-      <div style={{ paddingTop: "15vh" }}>
+      <div style={{ paddingTop: "15vh",fontFamily:"initial" }}>
         <h2 style={{ marginLeft: "43%" }}>Add House...</h2>
         <form
           style={{

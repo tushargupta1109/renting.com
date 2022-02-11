@@ -12,7 +12,7 @@ const header1 = ({ loc, setLoc }) => {
         class="d-inline-flex p-2"
         style={{
           display: "flex",
-          fontFamily: "sans-serif",
+          zIndex: "2",
           justifyContent: "space-evenly",
           backgroundColor: "lightblue",
           fontSize: "5vh",
@@ -22,13 +22,20 @@ const header1 = ({ loc, setLoc }) => {
           height: "13vh",
         }}
       >
-        <p style={{ fontSize: "7vh", color: "darkblue" }}>Renting.com</p>
-        <p style={{ marginTop: "2vh" }}>
+        <p
+          style={{ fontSize: "7vh", color: "darkblue", fontFamily: "initial" }}
+        >
+          Renting.com
+        </p>
+        <p style={{ marginTop: "2vh", fontFamily: "initial" }}>
           <Link to="/add" style={{ color: "black", textDecoration: "none" }}>
             Add House
           </Link>
         </p>
-        <p style={{ marginTop: "2vh" }} onClick={logoutSubmit}>
+        <p
+          style={{ marginTop: "2vh", fontFamily: "initial" }}
+          onClick={logoutSubmit}
+        >
           <Link to="/" style={{ color: "black", textDecoration: "none" }}>
             Logout{" "}
           </Link>
@@ -41,6 +48,7 @@ const header1 = ({ loc, setLoc }) => {
             fontSize: "3vh",
             borderRadius: "2vh",
             borderColor: "black",
+            fontFamily: "initial",
           }}
           name="loc"
           type="loc"

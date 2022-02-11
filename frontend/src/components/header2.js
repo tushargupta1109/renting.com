@@ -14,9 +14,10 @@ const header2 = () => {
           position: "fixed",
           width: "100%",
           height: "11vh",
+          fontFamily:"initial"
         }}
       >
-        <p>Renting.com</p>
+        <p style={{color:'darkblue'}}>Renting.com</p>
       </div>
     </>
   );
