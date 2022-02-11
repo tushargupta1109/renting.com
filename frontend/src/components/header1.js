@@ -1,21 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
 
-const header1 = () => {
-  const remove = async () => {
-    const token = localStorage.getItem("tokenStore");
-    try {
-      await axios.delete("/remove", {
-        method: "DELETE",
-        headers: {
-          Authorization: token,
-        },
-      });
-      alert("refresh the page");
-    } catch (e) {
-      alert(e);
-    }
+const header1 = ({ loc, setLoc }) => {
+  const logoutSubmit = () => {
+    localStorage.clear();
   };
 
   return (
@@ -24,8 +12,8 @@ const header1 = () => {
         class="d-inline-flex p-2"
         style={{
           display: "flex",
-          justifyContent: "space-evenly",
           fontFamily: "sans-serif",
+          justifyContent: "space-evenly",
           backgroundColor: "lightblue",
           fontSize: "5vh",
           textAlign: "center",
@@ -40,14 +28,28 @@ const header1 = () => {
             Add House
           </Link>
         </p>
-        <p style={{ marginTop: "2vh" }} onClick={remove}>
-          Remove House
-        </p>
-        <p style={{ marginTop: "2vh" }}>
+        <p style={{ marginTop: "2vh" }} onClick={logoutSubmit}>
           <Link to="/" style={{ color: "black", textDecoration: "none" }}>
-            Logout
+            Logout{" "}
           </Link>
         </p>
+        <input
+          style={{
+            marginTop: "2vh",
+            width: "35vh",
+            height: "7vh",
+            fontSize: "3vh",
+            borderRadius: "2vh",
+            borderColor: "black",
+          }}
+          name="loc"
+          type="loc"
+          placeholder="Search by location..."
+          label="loc"
+          value={loc}
+          onChange={(e) => setLoc(e.target.value)}
+          required
+        />
       </div>
     </>
   );

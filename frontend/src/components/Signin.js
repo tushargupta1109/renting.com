@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Header2 from "./header2";
-import { Link, useNavigate } from "react-router-dom";
+import {useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const Signin = () => {

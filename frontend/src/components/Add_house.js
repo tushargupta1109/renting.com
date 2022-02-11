@@ -21,31 +21,25 @@ const Add_house = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    const token = localStorage.getItem("tokenStore");
+
     const houseinfo = {
       address: house.address,
       city: house.city,
       rent: house.rent,
       detail: house.detail,
       mobile: house.mobile,
+      owner: token,
     };
 
-    const token = localStorage.getItem("tokenStore");
-    alert(token);
-    if (token) {
-      try {
-        const res = await axios.post("/add", {
-          method: "POST",
-          body: houseinfo,
-          headers: {
-            Authorization: token,
-          },
-        });
+    try {
+      const res = await axios.post("/add", houseinfo);
+      
+      alert("Added Succesfully!");
+      navigate("/home");
 
-        alert("Added Succesfully!");
-        navigate("/home");
-      } catch (err) {
-        alert(err);
-      }
+    } catch (err) {
+      alert(err);
     }
   };
   return (

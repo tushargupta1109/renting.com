@@ -8,6 +8,7 @@
     "initializer_list": "cpp",
     "type_traits": "cpp",
     "xutility": "cpp",
-    "utility": "cpp"
+    "utility": "cpp",
+    "string": "cpp"
   }
 }

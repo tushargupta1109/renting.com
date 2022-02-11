@@ -3,10 +3,9 @@ const House = require("../models/house_model");
 const router = express.Router();
 const auth = require("../middleware/auth");
 
-router.post("/add", auth,async (req, res) => {
-  const { address, city, rent, detail, mobile } = req.body;
-  const owner=req.user._id;
-  const house = new House({ address, city, rent, detail, mobile ,owner});
+router.post("/add", async (req, res) => {
+  const { address, city, rent, detail, mobile, owner } = req.body;
+  const house = new House({ address, city, rent, detail, mobile, owner });
   try {
     await house.save();
     res.send("Added Succesfully");
@@ -15,22 +14,30 @@ router.post("/add", auth,async (req, res) => {
   }
 });
 
-router.get("/houses", async (req, res) => {
-  try {
-    const house = await House.find({});
-    res.send(house);
-  } catch (e) {
-    res.status(400).json({ message: e }); 
+router.post("/houses", async (req, res) => {
+  const { location } = req.body;
+  if (location) {
+    try {
+      const house = await House.find({ city: location });
+      res.send(house);
+    } catch (e) {
+      res.status(400).json({ message: e });
+    }
+  } else {
+    try {
+      const house = await House.find({});
+      res.send(house);
+    } catch (e) {
+      res.status(400).json({ message: e });
+    }
   }
 });
 
-router.delete("/remove", auth,async (req, res) => {
+router.post("/remove", async (req, res) => {
+  const { id1, id2 } = req.body;
   try {
-    const house = await House.findOneAndDelete({ owner: req.user._id});
-    if (!house) {
-      return res.status(400).send();
-    }
-    res.send(task);
+    const house = await House.findOneAndDelete({ _id: id1, owner: id2 });
+    res.send(house);
   } catch (e) {
     res.status(400).send({ message: e });
   }
