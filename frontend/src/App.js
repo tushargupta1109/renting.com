@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Home from "./components/Home";
 import Register from "./components/register";
 import Add_house from "./components/Add_house";
+import Profile from "./components/Profile";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 const App = () => {
@@ -14,6 +15,7 @@ const App = () => {
             <Route exact path="/" element={<Register />} />
             <Route exact path="/home" element={<Home />} />
             <Route exact path="/add" element={<Add_house />} />
+            <Route exact path="/profile" element={<Profile />} />
           </Routes>
         </div>
       </Router>

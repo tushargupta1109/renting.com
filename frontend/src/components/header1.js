@@ -17,47 +17,33 @@ const Header1 = ({ loc, setLoc }) => {
         style={{
           display: "flex",
           zIndex: "2",
-          // justifyContent: "space-evenly",
           backgroundColor: "#87ceeb",
           fontSize: "5vh",
           textAlign: "center",
           position: "fixed",
           width: "100%",
-          height: "12vh",
+          height: "13vh",
         }}
       >
-          <p style={{ fontSize: "6vh", marginLeft: "15vh" }}>Renting.com</p>
-          <div
+        <p style={{ fontSize: "6vh", marginLeft: "15vh" }}>Renting.com</p>
+        <div
           className="d-inline-flex p-2"
-          style={{ justifyContent: "space-arround" ,marginLeft:'90vh'}}
+          style={{ justifyContent: "space-arround", marginLeft: "92vh" }}
         >
           <button
             style={{
               height: "7vh",
               fontSize: "4vh",
               marginTop: "1vh",
-              backgroundColor: "#87ceeb",
+               backgroundColor: "#87ceeb",
               borderColor: "#87ceeb",
             }}
           >
-            <Link to="/add" style={{ color: "black", textDecoration: "none" }}>
+            <Link to="/profile" style={{ color: "black", textDecoration: "none" }}>
               Profile <i class="fa-solid fa-user"></i>
             </Link>
           </button>
-          {/* <p style={{ marginTop: "1vh"}}>
-          <Link to="/add" style={{ color: "black", textDecoration: "none" }}>
-            Add House
-          </Link>
-        </p>
-        <p
-          style={{ marginTop: "1vh"}}
-          onClick={logoutSubmit}
-        >
-          <Link to="/" style={{ color: "black", textDecoration: "none" }}>
-            Logout{" "}
-          </Link>
-        </p> */}
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} style={{marginLeft:"5vh"}}>
             <input
               name="address"
               type="address"

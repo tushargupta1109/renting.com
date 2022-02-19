@@ -39,23 +39,23 @@ const Add_house = () => {
       const res = await axios.post("/add", houseinfo);
       navigate("/home");
     } catch (err) {
-      toast.error('Invalid Details!', {
+      toast.error("Invalid Details!", {
         position: "top-center",
         autoClose: 2000,
-        });
+      });
     }
   };
   return (
     <>
       <Header2 />
-      <div style={{ paddingTop: "15vh", fontFamily: "initial" }}>
-        <h2 style={{ marginLeft: "43%" }}>Add House...</h2>
+      <div style={{ paddingTop: "15vh" }}>
+        <span style={{ marginLeft: "44%", fontSize: "5vh" }}>Add House...</span>
         <form
           style={{
             display: "flex",
             flexDirection: "column",
             width: "95vh",
-            padding: "7vh",
+            padding: "6vh",
             marginLeft: "29%",
           }}
           onSubmit={handleSubmit}
@@ -119,11 +119,13 @@ const Add_house = () => {
           />
           <button
             style={{
-              backgroundColor: "#080808",
-              color: "#FFF",
+              backgroundColor: "#87ceeb",
+              color: "black",
               width: "20vh",
               height: "8vh",
               marginLeft: "29vh",
+              borderRadius: "1vh",
+              borderColor: "black",
             }}
             variant="contained"
             type="submit"

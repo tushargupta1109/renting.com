@@ -28,22 +28,23 @@ const houseshow = (house) => {
       <div className="card" style={{ width: "70vh" ,zIndex:'1'}}>
         <img className="card-img-top" src={house.house.image} />
         <div className="card-body" style={{ fontSize: "4vh" }}>
-          <ul>
-            <li>Address: {house.house.address}</li>
-            <li>City: {house.house.city}</li>
-            <li>Rent: {house.house.rent}</li>
-            <li>Type: {house.house.detail}</li>
-            <li>Owner's Mobile: {house.house.mobile}</li>
+          <ul style={{listStyle:'none',color:'darkblue'}}>
+            <li><span style={{color:'black' }}>Address: </span>{house.house.address}</li>
+            <li><span style={{color:'black' }}>City: </span>{house.house.city}</li>
+            <li><span style={{color:'black' }}>Rent: </span>{house.house.rent}</li>
+            <li><span style={{color:'black' }}>Type: </span>{house.house.detail}</li>
+            <li><span style={{color:'black' }}>Owner's Mobile: </span>{house.house.mobile}</li>
           </ul>
         </div>
         {house.house.owner === loggedinPerson ? (
           <button
             style={{
-              width: "30vh",
-              marginLeft: "18vh",
+              width: "22vh",
+              marginLeft: "22vh",
               color: "black",
-              backgroundColor: "lightblue",
-              borderColor: "black",
+              backgroundColor: "#87ceeb",
+              borderRadius:"0.5vh",
+              borderColor: "black",marginBottom:"2vh"
             }}
             onClick={handleremove}
           >
