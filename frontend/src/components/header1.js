@@ -1,66 +1,90 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-const header1 = ({ loc, setLoc }) => {
+const Header1 = ({ loc, setLoc }) => {
   const logoutSubmit = () => {
     localStorage.clear();
   };
-
+  const [address, setAddress] = useState("");
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setLoc(address);
+  };
   return (
     <>
       <div
-        class="d-inline-flex p-2"
+        className="d-inline-flex p-2"
         style={{
           display: "flex",
           zIndex: "2",
-          justifyContent: "space-evenly",
-          backgroundColor: "lightblue",
+          // justifyContent: "space-evenly",
+          backgroundColor: "#87ceeb",
           fontSize: "5vh",
           textAlign: "center",
           position: "fixed",
           width: "100%",
-          height: "13vh",
+          height: "12vh",
         }}
       >
-        <p
-          style={{ fontSize: "7vh", color: "darkblue", fontFamily: "initial" }}
+          <p style={{ fontSize: "6vh", marginLeft: "15vh" }}>Renting.com</p>
+          <div
+          className="d-inline-flex p-2"
+          style={{ justifyContent: "space-arround" ,marginLeft:'90vh'}}
         >
-          Renting.com
-        </p>
-        <p style={{ marginTop: "2vh", fontFamily: "initial" }}>
+          <button
+            style={{
+              height: "7vh",
+              fontSize: "4vh",
+              marginTop: "1vh",
+              backgroundColor: "#87ceeb",
+              borderColor: "#87ceeb",
+            }}
+          >
+            <Link to="/add" style={{ color: "black", textDecoration: "none" }}>
+              Profile <i class="fa-solid fa-user"></i>
+            </Link>
+          </button>
+          {/* <p style={{ marginTop: "1vh"}}>
           <Link to="/add" style={{ color: "black", textDecoration: "none" }}>
             Add House
           </Link>
         </p>
         <p
-          style={{ marginTop: "2vh", fontFamily: "initial" }}
+          style={{ marginTop: "1vh"}}
           onClick={logoutSubmit}
         >
           <Link to="/" style={{ color: "black", textDecoration: "none" }}>
             Logout{" "}
           </Link>
-        </p>
-        <input
-          style={{
-            marginTop: "2vh",
-            width: "35vh",
-            height: "7vh",
-            fontSize: "3vh",
-            borderRadius: "2vh",
-            borderColor: "black",
-            fontFamily: "initial",
-          }}
-          name="loc"
-          type="loc"
-          placeholder="Search by location..."
-          label="loc"
-          value={loc}
-          onChange={(e) => setLoc(e.target.value)}
-          required
-        />
+        </p> */}
+          <form onSubmit={handleSubmit}>
+            <input
+              name="address"
+              type="address"
+              placeholder="Search by Location..."
+              label="address"
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
+              style={{
+                width: "35vh",
+                height: "6.5vh",
+                fontSize: "3vh",
+                borderRadius: "0vh",
+                borderColor: "black",
+              }}
+            />
+            <button
+              type="submit"
+              class="btn btn-dark"
+              style={{ borderRadius: "0vh" }}
+            >
+              <i class="fas fa-search"></i>
+            </button>
+          </form>
+        </div>
       </div>
     </>
   );
 };
 
-export default header1;
+export default Header1;

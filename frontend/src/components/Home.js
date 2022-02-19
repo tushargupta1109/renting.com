@@ -1,8 +1,9 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import Header1 from "./header1";
-import Houseshow from "./houseshow";
+import Header1 from "./Header1";
+import Houseshow from "./houseshow";import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Home = () => {
   const Navigate = useNavigate();
@@ -13,7 +14,10 @@ const Home = () => {
 
   const checklogin = () => {
     if (localStorage.length == 0) {
-      alert("Signin or Signup to enter");
+      toast.error("Signin or Signup to enter!", {
+        position: "top-center",
+        autoClose: 2000,
+      });
       Navigate("/");
     }
   };
@@ -40,7 +44,7 @@ const Home = () => {
       {arr.map((house) => {
         house.owner === loggedinPerson ? arr1.push(house) : arr2.push(house);
       })}
-      <div style={{ paddingTop: "12vh" }}>
+      <div style={{ paddingTop: "10vh" }}>
         {arr2.length === 0 ? (
           <div
             className="text-center"
@@ -99,6 +103,7 @@ const Home = () => {
           ))
         )}
       </div>
+      <ToastContainer />
     </>
   );
 };

@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import Header2 from "./header2";
-import {useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Signin = () => {
   const navigate = useNavigate();
@@ -21,14 +23,15 @@ const Signin = () => {
 
     try {
       const res = await axios.post("/signin", userinfo);
-      alert("Logged in Successfully!");
       setUser({ email: "", password: "" });
-      
+
       localStorage.setItem("tokenStore", res.data);
       navigate("/home");
-      
     } catch (err) {
-      alert(err);
+      toast.error("Invalid Credentials!", {
+        position: "top-center",
+        autoClose: 2000,
+      });
     }
   };
   return (
@@ -50,7 +53,7 @@ const Signin = () => {
           onSubmit={handleSubmit}
         >
           <input
-            style={{ padding: "1vh", marginBottom: "7vh", marginLeft: "18vh" }}
+            style={{ padding: "1vh", marginBottom: "7vh", marginLeft: "18vh" ,backgroundColor:'whitesmoke',borderColor:'black'}}
             name="email"
             type="email"
             placeholder="Email..."
@@ -60,7 +63,7 @@ const Signin = () => {
             required
           />
           <input
-            style={{ padding: "1vh", marginBottom: "7vh", marginLeft: "18vh" }}
+            style={{ padding: "1vh", marginBottom: "7vh", marginLeft: "18vh",backgroundColor:'whitesmoke' ,borderColor:'black'}}
             name="password"
             type="password"
             placeholder="Password..."
@@ -71,11 +74,14 @@ const Signin = () => {
           />
           <button
             style={{
-              backgroundColor: "#080808",
+              backgroundColor: "skyblue",
               color: "#FFF",
-              width: "20vh",
-              height: "8vh",
+              width: "17vh",
+              height: "7vh",
               marginLeft: "35vh",
+              borderRadius:'1vh',
+              borderColor:"black",color:'black',
+              fontSize:'3vh'
             }}
             variant="contained"
             type="submit"
@@ -84,6 +90,7 @@ const Signin = () => {
           </button>
         </form>
       </div>
+      <ToastContainer />
     </>
   );
 };

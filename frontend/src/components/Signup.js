@@ -1,6 +1,9 @@
 import axios from "axios";
 import React, { useState } from "react";
 import Header2 from "./header2";
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
+
 
 const Signup = () => {
   const [user, setUser] = useState({
@@ -16,11 +19,14 @@ const Signup = () => {
   };
 
   const handleSubmit = async (e) => {
+    e.preventDefault();
     if (user.password !== user.confirmpass) {
-      alert("password dont't match");
+      toast.error("password didn't match!",{
+        position:"top-center",
+        autoClose: 2000,
+      })
       return;
     }
-    e.preventDefault();
     const userinfo = {
       name: user.name,
       email: user.email,
@@ -28,9 +34,15 @@ const Signup = () => {
     };
     try {
       const res = await axios.post("/signup", userinfo);
-      alert("registered Succesfully, Login to enter!");
+      toast.success('Registered Successfully, login to enter!',{
+        position:"top-center",
+        autoClose: 2000,
+      })
     } catch (err) {
-      alert(err);
+      toast.error("Email already registered!",{
+        position:"top-center",
+        autoClose: 2000,
+      })
     }
   };
   return (
@@ -52,7 +64,7 @@ const Signup = () => {
           onSubmit={handleSubmit}
         >
           <input
-            style={{ padding: "1vh", marginBottom: "7vh", marginLeft: "17vh" }}
+            style={{ padding: "1vh", marginBottom: "7vh", marginLeft: "17vh" ,backgroundColor:'whitesmoke' ,borderColor:'black'}}
             name="name"
             type="name"
             placeholder="Name..."
@@ -62,7 +74,7 @@ const Signup = () => {
             required
           />
           <input
-            style={{ padding: "1vh", marginBottom: "7vh", marginLeft: "17vh" }}
+            style={{ padding: "1vh", marginBottom: "7vh", marginLeft: "17vh" ,backgroundColor:'whitesmoke' ,borderColor:'black'}}
             name="email"
             type="email"
             placeholder="Email..."
@@ -72,7 +84,7 @@ const Signup = () => {
             required
           />
           <input
-            style={{ padding: "1vh", marginBottom: "7vh", marginLeft: "17vh" }}
+            style={{ padding: "1vh", marginBottom: "7vh", marginLeft: "17vh",backgroundColor:'whitesmoke' ,borderColor:'black' }}
             name="password"
             type="password"
             placeholder="Password..."
@@ -82,7 +94,8 @@ const Signup = () => {
             required
           />
           <input
-            style={{ padding: "1vh", marginBottom: "7vh", marginLeft: "17vh" }}
+            style={{ padding: "1vh", marginBottom: "7vh", marginLeft: "17vh",backgroundColor:'whitesmoke' ,borderColor:'black'
+           }}
             name="confirmpass"
             type="confirmpass"
             placeholder="Confirm Password..."
@@ -93,11 +106,14 @@ const Signup = () => {
           />
           <button
             style={{
-              backgroundColor: "#080808",
+              backgroundColor: "skyblue",
               color: "#FFF",
-              width: "20vh",
-              height: "8vh",
+              width: "17vh",
+              height: "7vh",
               marginLeft: "35vh",
+              borderRadius:'1vh',
+              borderColor:"black",color:'black',
+              fontSize:'3vh'
             }}
             variant="contained"
             type="submit"
@@ -106,6 +122,7 @@ const Signup = () => {
           </button>
         </form>
       </div>
+      <ToastContainer/>
     </>
   );
 };

@@ -1,5 +1,7 @@
 import React from "react";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const houseshow = (house) => {
   const loggedinPerson = localStorage.getItem("tokenStore");
@@ -10,15 +12,21 @@ const houseshow = (house) => {
     };
     try {
       await axios.post("/remove", info);
-      alert("Removed Successfully ,refresh the page");
+      toast.success("Removed Successfully, Refresh the Page!", {
+        position: "top-center",
+        autoClose: 2000,
+      });
     } catch (e) {
-      alert(e);
+      toast.error(e, {
+        position: "top-center",
+        autoClose: 2000,
+      });
     }
   };
   return (
     <>
       <div className="card" style={{ width: "70vh" ,zIndex:'1'}}>
-        <img className="card-img-top" src={house.house.img} />
+        <img className="card-img-top" src={house.house.image} />
         <div className="card-body" style={{ fontSize: "4vh" }}>
           <ul>
             <li>Address: {house.house.address}</li>
@@ -45,6 +53,7 @@ const houseshow = (house) => {
           ""
         )}
       </div>
+      <ToastContainer />
     </>
   );
 };

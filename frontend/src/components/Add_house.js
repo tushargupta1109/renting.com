@@ -2,6 +2,8 @@ import axios from "axios";
 import React, { useState } from "react";
 import Header2 from "./header2";
 import { Link, useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Add_house = () => {
   const navigate = useNavigate();
@@ -11,6 +13,7 @@ const Add_house = () => {
     rent: "",
     detail: "",
     mobile: "",
+    file: null,
   });
 
   const onChangeInput = (e) => {
@@ -31,21 +34,21 @@ const Add_house = () => {
       mobile: house.mobile,
       owner: token,
     };
-
+    console.log(house.file);
     try {
       const res = await axios.post("/add", houseinfo);
-      
-      alert("Added Succesfully!");
       navigate("/home");
-
     } catch (err) {
-      alert(err);
+      toast.error('Invalid Details!', {
+        position: "top-center",
+        autoClose: 2000,
+        });
     }
   };
   return (
     <>
       <Header2 />
-      <div style={{ paddingTop: "15vh",fontFamily:"initial" }}>
+      <div style={{ paddingTop: "15vh", fontFamily: "initial" }}>
         <h2 style={{ marginLeft: "43%" }}>Add House...</h2>
         <form
           style={{
@@ -107,6 +110,13 @@ const Add_house = () => {
             onChange={onChangeInput}
             required
           />
+          <input
+            style={{ padding: "1vh", marginBottom: "6vh" }}
+            name="file"
+            type="file"
+            onChange={onChangeInput}
+            required
+          />
           <button
             style={{
               backgroundColor: "#080808",
@@ -122,6 +132,7 @@ const Add_house = () => {
           </button>
         </form>
       </div>
+      <ToastContainer />
     </>
   );
 };

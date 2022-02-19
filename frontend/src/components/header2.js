@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 const header2 = () => {
   return (
@@ -8,7 +7,7 @@ const header2 = () => {
         style={{
           justifyContent: "center",
           fontFamily: "sans-serif",
-          backgroundColor: "lightblue",
+          backgroundColor: "skyblue",
           fontSize: "7vh",
           textAlign: "center",
           position: "fixed",
@@ -17,7 +16,7 @@ const header2 = () => {
           fontFamily:"initial"
         }}
       >
-        <p style={{color:'darkblue'}}>Renting.com</p>
+        <p style={{color:'black'}}>Renting.com</p>
       </div>
     </>
   );

@@ -21,10 +21,14 @@ const houseSchema = mongoose.Schema({
     type: Number,
     required: true,
   },
-  owner:{
-    type:mongoose.Schema.Types.ObjectId,
-    required:true,
-  }
+  owner: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+  },
+  image: {
+    type: Buffer,
+    require: true,
+  },
 });
 
 const House = mongoose.model("house", houseSchema);

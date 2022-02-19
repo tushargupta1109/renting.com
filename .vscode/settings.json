@@ -9,6 +9,9 @@
     "type_traits": "cpp",
     "xutility": "cpp",
     "utility": "cpp",
-    "string": "cpp"
+    "string": "cpp",
+    "deque": "cpp",
+    "queue": "cpp",
+    "xtree": "cpp"
   }
 }
