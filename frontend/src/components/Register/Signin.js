@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import Header2 from "./header2";
+import Header2 from "../Headers/header2";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Button } from "@material-ui/core";
 
 const Signin = () => {
   const navigate = useNavigate();
@@ -72,22 +73,20 @@ const Signin = () => {
             onChange={onChangeInput}
             required
           />
-          <button
+          <Button
             style={{
-              backgroundColor: "#87ceeb",
-              color: "#FFF",
-              width: "17vh",
+              backgroundColor: "black",
+              color: "white",
+              width: "20vh",
               height: "7vh",
               marginLeft: "35vh",
-              borderRadius:'1vh',
-              borderColor:"black",color:'black',
               fontSize:'3vh'
             }}
             variant="contained"
             type="submit"
           >
-            Sign in
-          </button>
+            Signin
+          </Button>
         </form>
       </div>
       <ToastContainer />

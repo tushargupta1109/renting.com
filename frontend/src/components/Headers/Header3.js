@@ -17,15 +17,15 @@ const Header1 = ({ loc, setLoc }) => {
         style={{
           display: "flex",
           zIndex: "2",
-          backgroundColor: "#87ceeb",
+          backgroundColor: "#ace5ee",
           fontSize: "5vh",
           textAlign: "center",
           position: "fixed",
           width: "100%",
-          height: "12vh",
+          height: "11vh",
         }}
       >
-        <p style={{ fontSize: "6vh", marginLeft: "15vh" }}>
+        <p style={{ fontSize: "5vh", marginLeft: "15vh" }}>
           <Link to="/home" style={{ color: "black", textDecoration: "none" }}>
             Renting.com
           </Link>
@@ -35,8 +35,8 @@ const Header1 = ({ loc, setLoc }) => {
             height: "7vh",
             fontSize: "3vh",
             marginTop: "1vh",
-            backgroundColor: "#87ceeb",
-            borderColor: "#87ceeb",
+            backgroundColor: "#ace5ee",
+            borderColor: "#ace5ee",
             marginLeft: "120vh",
           }}
         >
@@ -49,8 +49,8 @@ const Header1 = ({ loc, setLoc }) => {
             height: "7vh",
             fontSize: "3vh",
             marginTop: "1vh",
-            backgroundColor: "#87ceeb",
-            borderColor: "#87ceeb",
+            backgroundColor: "#ace5ee",
+            borderColor: "#ace5ee",
             marginLeft: "5vh",
           }}
           onClick={logoutSubmit}

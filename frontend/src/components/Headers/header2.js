@@ -7,7 +7,7 @@ const header2 = () => {
       <div
         style={{
           justifyContent: "center",
-          backgroundColor: "skyblue",
+          backgroundColor: "#ace5ee",
           fontSize: "6vh",
           textAlign: "center",
           position: "fixed",
@@ -15,7 +15,7 @@ const header2 = () => {
           height: "11vh",
         }}
       >
-        <p style={{ fontSize: "6vh", justifyContent:"center",marginTop:'1vh' }}>
+        <p style={{ fontSize: "5vh", justifyContent:"center",marginTop:'1vh' }}>
           <Link to="/home" style={{ color: "black", textDecoration: "none" }}>
             Renting.com
           </Link>

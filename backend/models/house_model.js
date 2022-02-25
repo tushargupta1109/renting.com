@@ -22,11 +22,11 @@ const houseSchema = mongoose.Schema({
     required: true,
   },
   owner: {
-    type: mongoose.Schema.Types.ObjectId,
+    type:String,
     required: true,
   },
   image: {
-    type: Buffer,
+    type: String,
     require: true,
   },
 });

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Home from "./components/Home";
-import Register from "./components/register";
-import Add_house from "./components/Add_house";
-import Profile from "./components/Profile";
+import Home from "./components/Screens/Home";
+import Register from "./components/Register/register";
+import Add_house from "./components/Screens/Add_house";
+import Profile from "./components/Screens/Profile";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 const App = () => {
