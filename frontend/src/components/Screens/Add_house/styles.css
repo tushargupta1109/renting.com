@@ -6,3 +6,22 @@
   padding: 1vh;
   margin-bottom: 6vh;
 }
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 95vh;
+  padding: 6vh;
+  margin-left: 29%;
+}
+
+.button {
+  background-color: black;
+  color: white;
+  width: 20vh;
+  height: 8vh;
+  margin-left: 29vh;
+  border-radius: 1vh;
+  border-color: black;
+  margin-top: 3vh;
+}

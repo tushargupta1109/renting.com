@@ -1,10 +1,11 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import Header1 from "../Headers/Header1";
-import Houseshow from "./Houseshow/houseshow";
+import Header1 from "../../Headers/Header1";
+import Houseshow from "../Houseshow/houseshow";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import './styles.css';
 
 const Home = () => {
   const Navigate = useNavigate();
@@ -46,8 +47,8 @@ const Home = () => {
           arr1.push(house);
         }
       })}
-      <div style={{ paddingTop: "6vh" }}>
-        <div style={{ paddingTop: "5vh" }}>
+      <div className="cover">
+        <div className="houses">
           {arr1.length === 0 ? (
             <div
               className="text-center"

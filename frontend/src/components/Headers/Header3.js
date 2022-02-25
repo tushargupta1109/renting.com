@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-const Header1 = ({ loc, setLoc }) => {
+const Header1 = ({  setLoc }) => {
   const logoutSubmit = () => {
     localStorage.clear();
   };

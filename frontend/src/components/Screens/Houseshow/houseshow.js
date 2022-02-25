@@ -2,7 +2,6 @@ import React from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Card, CardMedia, Button } from "@material-ui/core";
 import "./Styles.css";
 
 const houseshow = (house) => {
@@ -54,7 +53,7 @@ const houseshow = (house) => {
           </ul>
         </div>
         {house.house.owner === loggedinPerson ? (
-          <button className="button"
+          <button className="btns"
             onClick={handleremove}
           >
             Remove House

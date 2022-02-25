@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Button } from "@material-ui/core";
+import './styles.css'
 
 const Add_house = () => {
   const navigate = useNavigate();
@@ -51,14 +52,7 @@ const Add_house = () => {
     <>
       <Header2 />
       <div className="box">
-        <form
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            width: "95vh",
-            padding: "6vh",
-            marginLeft: "29%",
-          }}
+        <form className="form"
           onSubmit={handleSubmit}
         >
           <input
@@ -118,22 +112,13 @@ const Add_house = () => {
             onDone={({base64})=>setHouse({...house,image:base64})}
             required
           />
-          <Button
-            style={{
-              backgroundColor: "black",
-              color: "white",
-              width: "20vh",
-              height: "8vh",
-              marginLeft: "29vh",
-              borderRadius: "1vh",
-              borderColor: "black",
-              marginTop:"3vh"
-            }}
+          <button
+            className="button"
             variant="contained"
             type="submit"
           >
             Add
-          </Button>
+          </button>
         </form>
       </div>
       <ToastContainer />
