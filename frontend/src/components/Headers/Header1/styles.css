@@ -1,0 +1,42 @@
+.Flex {
+  display: flex;
+  z-index: 2;
+  background-color: #ace5ee;
+  font-size: 5vh;
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  height: 11vh;
+  padding: 1vh;
+  justify-content: space-evenly;
+}
+
+.renting-com {
+  font-size: 4.5vh;
+  margin-left: 8vh;
+  margin-top: 1vh;
+}
+
+.d-Inline-flex {
+  justify-content: space-arround;
+  margin-left: 110vh;
+}
+
+.profile-btn {
+  height: 7vh;
+  font-size: 3vh;
+  background-color: #ace5ee;
+  border-color: #ace5ee;
+}
+
+.search {
+  margin-left: 4vh;
+  margin-top: -1vh;
+}
+
+.address-input {
+  width: 35vh;
+  height: 6.5vh;
+  font-size: 3vh;
+  border-color: black;
+}

@@ -5,11 +5,6 @@ const Header1 = ({  setLoc }) => {
   const logoutSubmit = () => {
     localStorage.clear();
   };
-  const [address, setAddress] = useState("");
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setLoc(address);
-  };
   return (
     <>
       <div

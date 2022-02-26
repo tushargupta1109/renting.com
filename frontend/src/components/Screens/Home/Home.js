@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import Header1 from "../../Headers/Header1";
+import Header1 from "../../Headers/Header1/Header1";
 import Houseshow from "../Houseshow/houseshow";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -52,7 +52,6 @@ const Home = () => {
           {arr1.length === 0 ? (
             <div
               className="text-center"
-              style={{ fontSize: "5vh", color: "grey" }}
             >
               {" "}
               No house present in this location.
@@ -61,11 +60,6 @@ const Home = () => {
             arr1.map((house) => (
               <div
                 class="d-inline-flex p-2"
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  padding: "2vh",
-                }}
               >
                 <Houseshow house={house} />
               </div>

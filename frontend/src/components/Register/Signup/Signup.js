@@ -1,9 +1,9 @@
 import axios from "axios";
 import React, { useState } from "react";
-import Header2 from "../Headers/header2";
-import { ToastContainer, toast } from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';
-  import {Button } from "@material-ui/core";
+import Header2 from "../../Headers/Header2/header2";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import "./styles.css";
 
 const Signup = () => {
   const [user, setUser] = useState({
@@ -12,7 +12,7 @@ const Signup = () => {
     password: "",
     confirmpass: "",
   });
-  
+
   const onChangeInput = (e) => {
     const { name, value } = e.target;
     setUser({ ...user, [name]: value });
@@ -21,10 +21,10 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (user.password !== user.confirmpass) {
-      toast.error("password didn't match!",{
-        position:"top-center",
+      toast.error("password didn't match!", {
+        position: "top-center",
         autoClose: 2000,
-      })
+      });
       return;
     }
     const userinfo = {
@@ -34,37 +34,26 @@ const Signup = () => {
     };
     try {
       const res = await axios.post("/signup", userinfo);
-      toast.success('Registered Successfully, login to enter!',{
-        position:"top-center",
+      toast.success("Registered Successfully, login to enter!", {
+        position: "top-center",
         autoClose: 2000,
-      })
+      });
     } catch (err) {
-      toast.error("Email already registered!",{
-        position:"top-center",
+      toast.error("Email already registered!", {
+        position: "top-center",
         autoClose: 2000,
-      })
+      });
     }
   };
   return (
     <>
       <Header2 />
-      <div style={{ paddingTop: "20vh" }}>
-        <h2 style={{ marginLeft: "27vh" }}>I do not have a account</h2>
-        <span style={{ marginLeft: "33vh" }}>
-          {" "}
-          Sign up with your email and password
-        </span>
-        <form
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            width: "95vh",
-            padding: "10vh",
-          }}
-          onSubmit={handleSubmit}
-        >
+      <div className="body">
+        <h2 className="heading">I do not have a account</h2>
+        <span className="text"> Sign up with your email and password</span>
+        <form className="Form" onSubmit={handleSubmit}>
           <input
-            style={{ padding: "1vh", marginBottom: "7vh", marginLeft: "17vh" ,backgroundColor:'whitesmoke' ,borderColor:'black'}}
+            className="Input-field"
             name="name"
             type="name"
             placeholder="Name..."
@@ -74,7 +63,7 @@ const Signup = () => {
             required
           />
           <input
-            style={{ padding: "1vh", marginBottom: "7vh", marginLeft: "17vh" ,backgroundColor:'whitesmoke' ,borderColor:'black'}}
+            className="Input-field"
             name="email"
             type="email"
             placeholder="Email..."
@@ -84,7 +73,7 @@ const Signup = () => {
             required
           />
           <input
-            style={{ padding: "1vh", marginBottom: "7vh", marginLeft: "17vh",backgroundColor:'whitesmoke' ,borderColor:'black' }}
+            className="Input-field"
             name="password"
             type="password"
             placeholder="Password..."
@@ -94,8 +83,7 @@ const Signup = () => {
             required
           />
           <input
-            style={{ padding: "1vh", marginBottom: "7vh", marginLeft: "17vh",backgroundColor:'whitesmoke' ,borderColor:'black'
-           }}
+            className="Input-field"
             name="confirmpass"
             type="confirmpass"
             placeholder="Confirm Password..."
@@ -104,23 +92,16 @@ const Signup = () => {
             onChange={onChangeInput}
             required
           />
-          <Button
-            style={{
-              backgroundColor: "black",
-              color: "white",
-              width: "20vh",
-              height: "7vh",
-              marginLeft: "32vh",
-              fontSize:'3vh'
-            }}
+          <button
+            className="signup-btn"
             variant="contained"
             type="submit"
           >
             Signup
-          </Button>
+          </button>
         </form>
       </div>
-      <ToastContainer/>
+      <ToastContainer />
     </>
   );
 };

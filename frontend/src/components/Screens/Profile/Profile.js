@@ -1,7 +1,8 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import Houseshow from "./Houseshow/houseshow";
-import Header from "../Headers/Header3";
+import Houseshow from "../Houseshow/houseshow";
+import Header from "../../Headers/Header3";
+import './styles.css'
 
 const Profile = () => {
   const loggedinPerson = localStorage.getItem("tokenStore");
@@ -28,12 +29,11 @@ const Profile = () => {
           arr1.push(house);
         }
       })}
-      <div style={{ paddingTop: "5vh" }}>
-        <div style={{ paddingTop: "5vh" }}>
+      <div className="cover">
+        <div className="houses">
           {arr1.length === 0 ? (
             <div
               className="text-center"
-              style={{ fontSize: "5vh", color: "grey" }}
             >
               {" "}
               You do not have house in this location
@@ -42,11 +42,6 @@ const Profile = () => {
             arr1.map((house) => (
               <div
                 class="d-inline-flex p-2"
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  padding: "2vh",
-                }}
               >
                 <Houseshow house={house} />
               </div>

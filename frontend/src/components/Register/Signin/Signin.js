@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import Header2 from "../Headers/header2";
+import Header2 from "../../Headers/Header2/header2";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Button } from "@material-ui/core";
+import "./styles.css";
 
 const Signin = () => {
   const navigate = useNavigate();
@@ -38,23 +38,12 @@ const Signin = () => {
   return (
     <>
       <Header2 />
-      <div style={{ paddingTop: "20vh" }}>
-        <h2 style={{ marginLeft: "27vh" }}>I already have an account</h2>
-        <span style={{ marginLeft: "33vh" }}>
-          {" "}
-          Sign in with your email and password
-        </span>
-        <form
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            width: "95vh",
-            padding: "10vh",
-          }}
-          onSubmit={handleSubmit}
-        >
+      <div className="body">
+        <h2 className="heading">I already have an account</h2>
+        <span className="text"> Sign in with your email and password</span>
+        <form className="Form" onSubmit={handleSubmit}>
           <input
-            style={{ padding: "1vh", marginBottom: "7vh", marginLeft: "18vh" ,backgroundColor:'whitesmoke',borderColor:'black'}}
+            className="Input-field"
             name="email"
             type="email"
             placeholder="Email..."
@@ -64,7 +53,7 @@ const Signin = () => {
             required
           />
           <input
-            style={{ padding: "1vh", marginBottom: "7vh", marginLeft: "18vh",backgroundColor:'whitesmoke' ,borderColor:'black'}}
+            className="Input-field"
             name="password"
             type="password"
             placeholder="Password..."
@@ -73,20 +62,9 @@ const Signin = () => {
             onChange={onChangeInput}
             required
           />
-          <Button
-            style={{
-              backgroundColor: "black",
-              color: "white",
-              width: "20vh",
-              height: "7vh",
-              marginLeft: "35vh",
-              fontSize:'3vh'
-            }}
-            variant="contained"
-            type="submit"
-          >
+          <button className="signin-btn" variant="contained" type="submit">
             Signin
-          </Button>
+          </button>
         </form>
       </div>
       <ToastContainer />

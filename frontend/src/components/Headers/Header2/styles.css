@@ -1,0 +1,20 @@
+.main-heading {
+  font-size: 5vh;
+  justify-content: center;
+  margin-top: 1vh;
+}
+
+.link {
+  color: black;
+  text-decoration: none;
+}
+
+.header-style {
+  justify-content: center;
+  background-color: #ace5ee;
+  font-size: 6vh;
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  height: 11vh;
+}

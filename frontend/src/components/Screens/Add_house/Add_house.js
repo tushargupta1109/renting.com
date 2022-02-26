@@ -1,11 +1,10 @@
 import axios from "axios";
 import React, { useState } from "react";
-import Header2 from "../../Headers/header2";
+import Header2 from "../../Headers/Header2/header2";
 import FileBase64 from 'react-file-base64'
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Button } from "@material-ui/core";
 import './styles.css'
 
 const Add_house = () => {

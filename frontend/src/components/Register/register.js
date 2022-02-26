@@ -1,6 +1,6 @@
 import React from 'react';
-import Signup from './Signup';
-import Signin from './Signin';
+import Signup from './Signup/Signup';
+import Signin from './Signin/Signin';
 
 const register=()=>{
     return(
