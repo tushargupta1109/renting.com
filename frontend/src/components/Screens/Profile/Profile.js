@@ -41,7 +41,7 @@ const Profile = () => {
           ) : (
             arr1.map((house) => (
               <div
-                class="d-inline-flex p-2"
+                class="d-inline-flex p-4"
               >
                 <Houseshow house={house} />
               </div>

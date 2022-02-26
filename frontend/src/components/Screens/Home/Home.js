@@ -5,7 +5,7 @@ import Header1 from "../../Headers/Header1/Header1";
 import Houseshow from "../Houseshow/houseshow";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import './styles.css';
+import "./styles.css";
 
 const Home = () => {
   const Navigate = useNavigate();
@@ -50,17 +50,13 @@ const Home = () => {
       <div className="cover">
         <div className="houses">
           {arr1.length === 0 ? (
-            <div
-              className="text-center"
-            >
+            <div className="text-center">
               {" "}
               No house present in this location.
             </div>
           ) : (
             arr1.map((house) => (
-              <div
-                class="d-inline-flex p-2"
-              >
+              <div class="d-inline-flex p-4">
                 <Houseshow house={house} />
               </div>
             ))
