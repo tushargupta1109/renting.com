@@ -1,4 +1,4 @@
-.Flex {
+.flex-box {
   display: flex;
   z-index: 2;
   background-color: #ace5ee;
@@ -11,31 +11,32 @@
   justify-content: space-evenly;
 }
 
-.renting-com {
-  font-size: 4.5vh;
-  margin-left: 8vh;
-  margin-top: 1vh;
-}
-
-.profile-btn {
+.add_button {
   height: 7vh;
   font-size: 3vh;
+  margin-top: 1vh;
   background-color: #ace5ee;
   border-color: #ace5ee;
+  margin-left: 110vh;
 }
 
-.search {
-  margin-left: 4vh;
-  margin-top: -1vh;
-}
-
-.address-input {
-  width: 35vh;
-  height: 6.5vh;
+.logout_button {
+  height: 7vh;
   font-size: 3vh;
-  border-color: black;
+  margin-top: 1vh;
+  background-color: #ace5ee;
+  border-color: #ace5ee;
+  margin-left: 3vh;
 }
 
-.profile-btn:hover {
+.Main-heading {
+  font-size: 4.5vh;
+  margin-top: 1vh;
+  margin-left: 15vh;
+}
+.logout_button:hover {
+  box-shadow: 0 8px 16px 0 rgba(151, 148, 148, 0.3);
+}
+.add_button:hover {
   box-shadow: 0 8px 16px 0 rgba(151, 148, 148, 0.3);
 }

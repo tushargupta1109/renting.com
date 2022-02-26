@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import Houseshow from "../Houseshow/houseshow";
-import Header from "../../Headers/Header3";
+import Header from "../../Headers/Header3/Header3";
 import './styles.css'
 
 const Profile = () => {

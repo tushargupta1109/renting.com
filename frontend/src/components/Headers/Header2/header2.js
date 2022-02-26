@@ -7,7 +7,7 @@ const header2 = () => {
     <>
       <div className="header-style">
         <p className="main-heading">
-          <Link className="link" to="/home">
+          <Link style={{textDecoration:'none',color:"black"}}ssName="link" to="/home">
             Renting.com
           </Link>
         </p>
