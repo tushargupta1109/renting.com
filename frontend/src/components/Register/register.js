@@ -4,7 +4,7 @@ import Signin from './Signin/Signin';
 
 const register=()=>{
     return(
-        <div style={{display:'flex'}}>
+        <div style={{display:'flex',background: "#f7f7f7"}}>
             <Signin/>
             <Signup/>
         </div>

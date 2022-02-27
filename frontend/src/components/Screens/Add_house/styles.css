@@ -1,10 +1,13 @@
 .box {
   padding-top: 10vh;
+  width: 100%;
+  background: #f7f7f7;
 }
 
 .input-field {
   padding: 1vh;
   margin-bottom: 6vh;
+  border-color: black;
 }
 
 .form {
@@ -12,7 +15,7 @@
   flex-direction: column;
   width: 95vh;
   padding: 6vh;
-  margin-left: 29%;
+  margin-left: 30%;
 }
 
 .button {
@@ -26,5 +29,5 @@
   margin-top: 3vh;
 }
 .button:hover {
-  box-shadow: 0 8px 16px 0 rgba(151, 148, 148, 0.3);
+  box-shadow: 0 8px 16px 0 rgba(151, 148, 148, 0.6);
 }

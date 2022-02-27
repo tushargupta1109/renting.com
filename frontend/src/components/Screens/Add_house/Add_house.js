@@ -1,11 +1,11 @@
 import axios from "axios";
 import React, { useState } from "react";
 import Header2 from "../../Headers/Header2/header2";
-import FileBase64 from 'react-file-base64'
+import FileBase64 from "react-file-base64";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import './styles.css'
+import "./styles.css";
 
 const Add_house = () => {
   const navigate = useNavigate();
@@ -15,7 +15,7 @@ const Add_house = () => {
     rent: "",
     detail: "",
     mobile: "",
-    image:"",
+    image: "",
   });
 
   const onChangeInput = (e) => {
@@ -35,7 +35,7 @@ const Add_house = () => {
       detail: house.detail,
       mobile: house.mobile,
       owner: token,
-      image:house.image
+      image: house.image,
     };
     try {
       const res = await axios.post("/add", houseinfo);
@@ -51,11 +51,9 @@ const Add_house = () => {
     <>
       <Header2 />
       <div className="box">
-        <form className="form"
-          onSubmit={handleSubmit}
-        >
+        <form className="form" onSubmit={handleSubmit}>
           <input
-          className="input-field"
+            className="input-field"
             name="address"
             type="address"
             placeholder="Address..."
@@ -75,7 +73,7 @@ const Add_house = () => {
             required
           />
           <input
-           className="input-field"
+            className="input-field"
             name="rent"
             type="rent"
             placeholder="Rent..."
@@ -85,7 +83,7 @@ const Add_house = () => {
             required
           />
           <input
-           className="input-field"
+            className="input-field"
             name="detail"
             type="detail"
             placeholder="Details..."
@@ -108,14 +106,10 @@ const Add_house = () => {
             name="image"
             type="file"
             multiple={false}
-            onDone={({base64})=>setHouse({...house,image:base64})}
+            onDone={({ base64 }) => setHouse({ ...house, image: base64 })}
             required
           />
-          <button
-            className="button"
-            variant="contained"
-            type="submit"
-          >
+          <button className="button" variant="contained" type="submit">
             Add
           </button>
         </form>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Home from "./components/Screens/Home/Home";
 import Register from "./components/Register/register";

@@ -20,7 +20,6 @@
   padding: 1vh;
   margin-bottom: 7vh;
   margin-left: 18vh;
-  background-color: whitesmoke;
   border-color: black;
 }
 
@@ -36,5 +35,5 @@
 }
 
 .signup-btn:hover {
-  box-shadow: 0 8px 16px 0 rgba(151, 148, 148, 0.3);
+  box-shadow: 0 8px 16px 0 rgba(151, 148, 148, 0.6);
 }

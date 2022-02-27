@@ -2,11 +2,21 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import Houseshow from "../Houseshow/houseshow";
 import Header from "../../Headers/Header3/Header3";
-import './styles.css'
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router-dom";
+import "./styles.css";
 
 const Profile = () => {
+  const navigate = useNavigate();
   const loggedinPerson = localStorage.getItem("tokenStore");
   const [arr, setArr] = useState([]);
+
+  const checklogin = () => {
+    if (localStorage.length === 0) {
+      navigate("/");
+    }
+  };
 
   const gethouses = async () => {
     const info = {
@@ -22,7 +32,8 @@ const Profile = () => {
     gethouses();
   }, []);
   return (
-    <div>
+    <>
+      {checklogin()}
       <Header />
       {arr.map((house) => {
         if (house.owner === loggedinPerson) {
@@ -32,24 +43,20 @@ const Profile = () => {
       <div className="cover">
         <div className="houses">
           {arr1.length === 0 ? (
-            <div
-              className="text-center"
-            >
+            <div className="text-center">
               {" "}
               You do not have house in this location
             </div>
           ) : (
             arr1.map((house) => (
-              <div
-                class="d-inline-flex p-4"
-              >
+              <div class="d-inline-flex p-4">
                 <Houseshow house={house} />
               </div>
             ))
           )}
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

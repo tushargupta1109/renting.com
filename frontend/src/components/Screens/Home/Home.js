@@ -15,11 +15,7 @@ const Home = () => {
   const [loc, setLoc] = useState("");
 
   const checklogin = () => {
-    if (localStorage.length == 0) {
-      toast.error("Signin or Signup to enter!", {
-        position: "top-center",
-        autoClose: 2000,
-      });
+    if (localStorage.length === 0) {
       Navigate("/");
     }
   };
