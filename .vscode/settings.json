@@ -13,6 +13,7 @@
     "deque": "cpp",
     "queue": "cpp",
     "xtree": "cpp",
-    "algorithm": "cpp"
+    "algorithm": "cpp",
+    "unordered_map": "cpp"
   }
 }
