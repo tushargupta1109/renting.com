@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
-const DB="mongodb+srv://tushar:tushar@cluster0.oul7j.mongodb.net/renting?retryWrites=true&w=majority"
+require('dotenv').config();
+
+const DB=process.env.MONGODB_URL
 mongoose.connect(DB, {
   useNewUrlParser: true,
 });
