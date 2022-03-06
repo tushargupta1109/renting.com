@@ -43,7 +43,7 @@ const houseshow = (house) => {
               {house.house.rent}
             </li>
             <li>
-              <span className="list-items">Type: </span>
+              <span className="list-items">Detail: </span>
               {house.house.detail}
             </li>
             <li>
