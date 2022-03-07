@@ -14,6 +14,14 @@ app.use("/", UserRouter);
 app.use("/", HouseRouter);
 
 const port = process.env.PORT
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("frontend/build"));
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "frontend", "build", "index.html"));
+  });
+}
+
 app.listen(port || 5000, () => {
   console.log("server is running on port 3000");
 });
