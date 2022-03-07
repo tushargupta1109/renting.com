@@ -13,7 +13,7 @@ app.use(express.urlencoded({ limit: "30mb", extended: true }));
 app.use("/", UserRouter);
 app.use("/", HouseRouter);
 
-const port = 5000;
-app.listen(port, () => {
+const port = process.env.PORT
+app.listen(port || 5000, () => {
   console.log("server is running on port 3000");
 });
