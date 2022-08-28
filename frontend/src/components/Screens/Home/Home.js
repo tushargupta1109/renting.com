@@ -46,7 +46,10 @@ const Home = () => {
       <div className="cover">
         <div className="houses">
           {arr1.length === 0 ? (
-            <div className="text-center">
+            <div
+              className="text-center"
+              style={{ color: "grey", marginTop: "10vh", fontSize: "5vh" }}
+            >
               {" "}
               No house present in this location.
             </div>

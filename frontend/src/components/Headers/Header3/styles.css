@@ -12,21 +12,20 @@
 }
 
 .add_button {
-  height: 7vh;
-  font-size: 3vh;
-  margin-top: 1vh;
+  height: 35px;
+  font-size: 20px;
   background-color: #ace5ee;
   border-color: #ace5ee;
-  margin-left: 110vh;
+  margin-top: 7px;margin-bottom: 4px;
 }
 
 .logout_button {
-  height: 7vh;
-  font-size: 3vh;
-  margin-top: 1vh;
+  height: 35px;
+  font-size: 20px;
   background-color: #ace5ee;
   border-color: #ace5ee;
-  margin-left: 3vh;
+  margin-top: 7px;
+  margin-bottom: 4px;
 }
 
 .Main-heading {

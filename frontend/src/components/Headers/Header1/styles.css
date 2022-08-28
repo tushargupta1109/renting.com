@@ -12,28 +12,29 @@
 }
 
 .renting-com {
-  font-size: 4.5vh;
-  margin-left: 8vh;
-  margin-top: 1vh;
+  font-size: 22px;
+  margin-top: 5px;
 }
 
 .profile-btn {
-  height: 7vh;
-  font-size: 3vh;
+  height: 35px;
+  font-size: 20px;
   background-color: #ace5ee;
   border-color: #ace5ee;
+  margin-top: 7px;
 }
 
 .search {
-  margin-left: 4vh;
-  margin-top: -1vh;
+  margin-top: 5px;
+  padding-left: 30px;
 }
 
 .address-input {
-  width: 35vh;
-  height: 6.5vh;
-  font-size: 3vh;
+  width: 200px;
+  height: 35px;
+  font-size: 16px;
   border-color: black;
+  margin-top: 2px;
 }
 
 .profile-btn:hover {

@@ -1,39 +1,6 @@
-.body {
-  padding-top: 20vh;
-}
-.heading {
-  margin-left: 27vh;
-}
-
-.text {
-  margin-left: 33vh;
-}
-
-.Form {
-  display: flex;
-  flex-direction: column;
-  width: 95vh;
-  padding: 10vh;
-}
-
-.Input-field {
-  padding: 1vh;
-  margin-bottom: 7vh;
-  margin-left: 18vh;
-  border-color: black;
-}
-
-.signin-btn {
-  background-color: black;
-  color: white;
-  width: 20vh;
-  height: 7vh;
-  margin-left: 35vh;
-  font-size: 3vh;
-  border-radius: 1vh;
-  border-color: black;
-}
-
-.signin-btn:hover {
+.btn:hover {
   box-shadow: 0 8px 16px 0 rgba(151, 148, 148, 0.6);
+}
+.body {
+  padding-top: 80px;
 }

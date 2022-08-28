@@ -6,12 +6,6 @@
   padding-top: 5vh;
 }
 
-.text-center {
-  margin-top: 10vh;
-  font-size: 5vh;
-  color: grey;
-}
-
 .d-inline-flex {
   display: flex;
   justify-content: center;

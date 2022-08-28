@@ -10,38 +10,46 @@ const Header1 = ({ setLoc }) => {
   };
   return (
     <>
-      <div className="Flex">
-        <p className="renting-com">Renting.com</p>
-        <div className="d-inline-flex p-2" style={{ marginLeft: "80vh" }}>
-          <button className="profile-btn">
-            <Link
-              to="/profile"
-              style={{ color: "black", textDecoration: "none" }}
-            >
-              Profile <i class="fa-solid fa-user"></i>
-            </Link>
-          </button>
-          <form
-          className="search"
-            onSubmit={handleSubmit}
-          >
-            <input
-              name="address"
-              type="address"
-              placeholder="Search by Location..."
-              label="address"
-              value={address}
-              onChange={(e) => setAddress(e.target.value)}
-              className="address-input"
-            />
-            <button
-              type="submit"
-              class="btn btn-dark"
-              style={{ borderRadius: "0vh" }}
-            >
-              <i class="fas fa-search"></i>
+      <div
+        className="row"
+        style={{
+          width: "100%",
+          position: "fixed",
+          zIndex: "2",
+          backgroundColor: "#ace5ee",
+        }}
+      >
+        <div className="renting-com col-md-7 px-0 text-center">
+          <span className="px-20" style={{ marginLeft: "5%" }}>
+            Renting.com
+          </span>
+        </div>
+        <div className="col-md-5 px-0">
+          <div className="d-flex justify-content-center">
+            <button className="profile-btn">
+              <Link
+                to="/profile"
+                style={{ color: "black", textDecoration: "none" }}
+              >
+                Profile <i class="fa-solid fa-user"></i>
+              </Link>
             </button>
-          </form>
+
+            <form className="search" onSubmit={handleSubmit}>
+              <input
+                name="address"
+                type="address"
+                placeholder="Search by Location..."
+                label="address"
+                value={address}
+                onChange={(e) => setAddress(e.target.value)}
+                className="address-input"
+              />
+              <button type="submit" class="btn">
+                <i class="fas fa-search"></i>
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </>

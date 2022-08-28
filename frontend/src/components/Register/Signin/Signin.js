@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Header2 from "../../Headers/Header2/header2";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
@@ -37,34 +36,49 @@ const Signin = () => {
   };
   return (
     <>
-      <Header2 />
       <div className="body">
-        <h2 className="heading">I already have an account</h2>
-        <span className="text"> Sign in with your email and password</span>
-        <form className="Form" onSubmit={handleSubmit}>
-          <input
-            className="Input-field"
-            name="email"
-            type="email"
-            placeholder="Email..."
-            label="Email"
-            value={user.email}
-            onChange={onChangeInput}
-            required
-          />
-          <input
-            className="Input-field"
-            name="password"
-            type="password"
-            placeholder="Password..."
-            label="Password"
-            value={user.password}
-            onChange={onChangeInput}
-            required
-          />
-          <button className="signin-btn" variant="contained" type="submit">
-            Signin
-          </button>
+        <h2 className="text-center mb-0">I already have an account</h2>
+        <div className="text-center">Sign in with your email and password</div>
+        <form
+          className="d-flex flex-column pt-5 text-center"
+          onSubmit={handleSubmit}
+        >
+          <div className="text-center py-3">
+            <input
+              className="p-2 border-dark"
+              style={{ width: "350px" }}
+              name="email"
+              type="email"
+              placeholder="Email..."
+              label="Email"
+              value={user.email}
+              onChange={onChangeInput}
+              required
+            />
+          </div>
+          <div className="text-center py-3">
+            <input
+              className="p-2 border-dark"
+              style={{ width: "350px" }}
+              name="password"
+              type="password"
+              placeholder="Password..."
+              label="Password"
+              value={user.password}
+              onChange={onChangeInput}
+              required
+            />
+          </div>
+          <div className="text-center py-3">
+            <button
+              className="btn rounded-3 text-center bg-dark text-white"
+              variant="contained"
+              type="submit"
+              style={{ width: "100px", height: "45px" }}
+            >
+              Signin
+            </button>
+          </div>
         </form>
       </div>
       <ToastContainer />
