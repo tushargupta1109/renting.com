@@ -1,32 +1,24 @@
 .box {
-  padding-top: 10vh;
+  padding-top: 100px;
   width: 100%;
-  background: #f7f7f7;
 }
 
 .input-field {
-  padding: 1vh;
-  margin-bottom: 6vh;
-  border-color: black;
-}
-
-.form {
-  display: flex;
-  flex-direction: column;
-  width: 95vh;
-  padding: 6vh;
-  margin-left: 30%;
+  padding: 4px;
+  margin-bottom: 35px;
+  border-color: black; 
+  width: 40%;
+  background-color: #f7f7f7;
 }
 
 .button {
+  margin-top: 30px;
   background-color: black;
   color: white;
-  width: 20vh;
-  height: 8vh;
-  margin-left: 29vh;
+  width: 120px;
+  height: 40px;
   border-radius: 1vh;
-  border-color: black;
-  margin-top: 3vh;
+  border-color: black; 
 }
 .button:hover {
   box-shadow: 0 8px 16px 0 rgba(151, 148, 148, 0.6);

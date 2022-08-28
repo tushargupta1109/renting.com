@@ -1,15 +1,7 @@
 .cover {
-  padding-top: 6vh;
+  padding-top: 80px;
 }
 
-.houses {
-  padding-top: 5vh;
-}
-
-.d-inline-flex {
-  display: flex;
-  justify-content: center;
-  padding: 2vh;
-  margin-left: 3vh;
-  margin-bottom: 2vh;
+.house {
+  padding: 25px;
 }
