@@ -45,7 +45,7 @@ const Header1 = ({ setLoc }) => {
                 onChange={(e) => setAddress(e.target.value)}
                 className="address-input"
               />
-              <button type="submit" class="btn">
+              <button type="submit" className="search_btn">
                 <i class="fas fa-search"></i>
               </button>
             </form>

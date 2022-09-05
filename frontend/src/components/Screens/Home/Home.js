@@ -12,6 +12,7 @@ const Home = () => {
 
   const [allHouses, setAllHouses] = useState([]);
   const [loc, setLoc] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
 
   const checklogin = () => {
     if (localStorage.length === 0) {
@@ -25,17 +26,22 @@ const Home = () => {
     };
     const res = await axios.post("/houses", info);
     setAllHouses(res.data);
+    setIsLoading(false);
   };
 
   const Houses = [];
 
   useEffect(() => {
+    setIsLoading(true);
     gethouses();
   }, [loc]);
 
   return (
     <>
       {checklogin()}
+      <div style={{ position: "fixed", zIndex: "10" }}>
+        <Header1 setLoc={setLoc} loc={loc} />
+      </div>
       <Header1 setLoc={setLoc} loc={loc} />
       {allHouses.map((house) => {
         if (house.owner !== loggedinPerson) {
@@ -43,7 +49,14 @@ const Home = () => {
         }
       })}
       <div className="cover">
-        {Houses.length === 0 ? (
+        {isLoading ? (
+          <div
+            className="text-center"
+            style={{ color: "grey", marginTop: "50px", fontSize: "22px" }}
+          >
+            Loading...
+          </div>
+        ) : Houses.length === 0 ? (
           <div
             className="text-center"
             style={{ color: "grey", marginTop: "50px", fontSize: "22px" }}

@@ -27,27 +27,31 @@ const houseshow = (house) => {
   return (
     <>
       <div className="card">
-        <img className="card-img-top" src={house.house.image} />
+        <img
+          style={{ height: "40vh" }}
+          className="card-img-top"
+          src={house.house.image}
+        />
         <div className="card-body">
           <div className="row">
-            <div className="text-center col-6">Address:</div>{" "}
-            <div className="lists text-center col-6">{house.house.address}</div>
+            <div className="text-left col-6">Address:</div>{" "}
+            <div className="lists text-left col-6">{house.house.address}</div>
           </div>
           <div className="row">
-            <div className="text-center col-6">City:</div>{" "}
-            <div className="lists text-center col-6">{house.house.city}</div>
+            <div className="text-left col-6">City:</div>{" "}
+            <div className="lists text-left col-6">{house.house.city}</div>
           </div>
           <div className="row">
-            <div className="text-center col-6">Rent:</div>{" "}
-            <div className="lists text-center col-6">{house.house.rent}</div>
+            <div className="text-left col-6">Rent:</div>{" "}
+            <div className="lists text-left col-6">{house.house.rent}</div>
           </div>
           <div className="row">
-            <div className="text-center col-6">Detail:</div>{" "}
-            <div className="lists text-center col-6">{house.house.detail}</div>
+            <div className="text-left col-6">Detail:</div>{" "}
+            <div className="lists text-left col-6">{house.house.detail}</div>
           </div>
           <div className="row">
-            <div className="text-center col-6">Owner's Mobile:</div>{" "}
-            <div className="lists text-center col-6">{house.house.mobile}</div>
+            <div className="text-left col-6">Owner's Mobile:</div>{" "}
+            <div className="lists text-left col-6">{house.house.mobile}</div>
           </div>
         </div>
         {house.house.owner === loggedinPerson ? (

@@ -17,9 +17,13 @@ const header2 = () => {
           className="align-middle"
           style={{ fontSize: "22px", marginTop: "8px" }}
         >
-          <Link style={{ textDecoration: "none", color: "black" }} to="/home">
-            Renting.com
-          </Link>
+          {localStorage.length != 0 ? (
+            <Link style={{ textDecoration: "none", color: "black" }} to="/home">
+              <p>Renting.com</p>
+            </Link>
+          ) : (
+            <p>Renting.com</p>
+          )}
         </div>
       </div>
     </>

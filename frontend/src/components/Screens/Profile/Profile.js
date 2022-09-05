@@ -10,6 +10,7 @@ const Profile = () => {
   const navigate = useNavigate();
   const loggedinPerson = localStorage.getItem("tokenStore");
   const [allHouses, setAllHouses] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const checklogin = () => {
     if (localStorage.length === 0) {
@@ -23,6 +24,7 @@ const Profile = () => {
     };
     const res = await axios.post("/houses", info);
     setAllHouses(res.data);
+    setIsLoading(false);
   };
 
   const myHouses = [];
@@ -33,14 +35,23 @@ const Profile = () => {
   return (
     <>
       {checklogin()}
-      <Header />
+      <div style={{ position: "fixed", zIndex: "10", top: 0 }}>
+        <Header />
+      </div>
       {allHouses.map((house) => {
         if (house.owner === loggedinPerson) {
           myHouses.push(house);
         }
       })}
       <div className="cover">
-        {myHouses.length === 0 ? (
+        {isLoading ? (
+          <div
+            className="text-center"
+            style={{ color: "grey", marginTop: "50px", fontSize: "22px" }}
+          >
+            Loading...
+          </div>
+        ) : myHouses.length === 0 ? (
           <div
             className="text-center"
             style={{ color: "grey", marginTop: "50px", fontSize: "22px" }}
