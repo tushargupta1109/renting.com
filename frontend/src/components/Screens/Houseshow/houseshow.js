@@ -1,71 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./Styles.css";
+import ShowModal from "./ShowModal";
 
-const houseshow = (house) => {
-  const loggedinPerson = localStorage.getItem("tokenStore");
-  const handleremove = async () => {
-    const info = {
-      id1: house.house._id,
-      id2: loggedinPerson,
-    };
-    try {
-      await axios.post("/remove", info);
-      toast.success("Removed Successfully, Refresh the Page!", {
-        position: "top-center",
-        autoClose: 2000,
-      });
-    } catch (e) {
-      toast.error(e, {
-        position: "top-center",
-        autoClose: 2000,
-      });
-    }
-  };
+const Houseshow = (house) => {
+  const [show, setShow] = useState(false);
   return (
     <>
-      <div className="card">
+      <div
+        className="card"
+        onClick={() => setShow(true)}
+        style={{ cursor: "pointer" }}
+      >
         <img
-          style={{ height: "40vh" }}
+          style={{ height: "35vh" }}
           className="card-img-top"
           src={house.house.image}
         />
-        <div className="card-body">
+        <div className="card-body px-2 py-2">
           <div className="row">
-            <div className="text-left col-6">Address:</div>{" "}
-            <div className="lists text-left col-6">{house.house.address}</div>
+            <div className="text-center col-6">City:</div>
+            <div className="lists text-center col-6">{house.house.city}</div>
           </div>
           <div className="row">
-            <div className="text-left col-6">City:</div>{" "}
-            <div className="lists text-left col-6">{house.house.city}</div>
+            <div className="text-center col-6">Rent:</div>
+            <div className="lists text-center col-6">{house.house.rent}</div>
           </div>
-          <div className="row">
-            <div className="text-left col-6">Rent:</div>{" "}
-            <div className="lists text-left col-6">{house.house.rent}</div>
-          </div>
-          <div className="row">
-            <div className="text-left col-6">Detail:</div>{" "}
-            <div className="lists text-left col-6">{house.house.detail}</div>
-          </div>
-          <div className="row">
-            <div className="text-left col-6">Owner's Mobile:</div>{" "}
-            <div className="lists text-left col-6">{house.house.mobile}</div>
+          <div className="row text-center pt-2">
+            <span className="knowMorebtn">Click to Know More.</span>
           </div>
         </div>
-        {house.house.owner === loggedinPerson ? (
-          <div className="text-center">
-            <button className="btns" onClick={handleremove}>
-              Remove House
-            </button>
-          </div>
-        ) : (
-          ""
-        )}
       </div>
+      {show && <ShowModal show={show} setShow={setShow} house={house} />}
       <ToastContainer />
     </>
   );
 };
-export default houseshow;
+export default Houseshow;

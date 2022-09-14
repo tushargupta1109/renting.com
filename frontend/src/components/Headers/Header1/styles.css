@@ -1,15 +1,15 @@
 .renting-com {
   font-size: 22px;
-  margin-top: 5px;
+  margin-top: 4px;
 }
 
 .profile-btn {
-  height: 35px;
-  font-size: 20px;
+  height: 30px;
+  font-size: 16px;
   background-color: #ace5ee;
   border:1px solid black;
   border-radius: 4px;
-  margin-top: 6px;
+  margin-top: 7px;
   margin-bottom: 4px;
 }
 
@@ -37,4 +37,8 @@
   border: none;
   padding: 5px;
   background-color: #ace5ee;
+}
+
+.homeIcon img,svg{
+  vertical-align: baseline;
 }

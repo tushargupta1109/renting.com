@@ -1,26 +1,26 @@
 .renting-com {
   font-size: 22px;
-  margin-top: 5px;
+  margin-top: 4px;
 }
 
 .add_button {
-  height: 35px;
-  font-size: 20px;
+  height: 30px;
+  font-size: 16px;
   background-color: #ace5ee;
   border:1px solid black;
-  margin-top: 6px;
-  margin-bottom: 4px;
+  margin-top: 7px;
+  margin-bottom: 6px;
   border-radius: 4px;
 }
 
 .logout_button {
-  height: 35px;
-  font-size: 20px;
+  height: 30px;
+  font-size: 16px;
   background-color: #ace5ee;
   border:1px solid black;
-  margin-top: 6px;
+  margin-top: 7px;
   border-radius: 4px;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 
 .logout_button:hover {
@@ -28,4 +28,8 @@
 }
 .add_button:hover {
   box-shadow: 0 8px 16px 0 rgba(151, 148, 148, 0.3);
+}
+
+.homeIcon img,svg{
+  vertical-align: baseline;
 }

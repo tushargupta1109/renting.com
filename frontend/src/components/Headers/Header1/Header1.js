@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./styles.css";
+import { HomeFilled } from "@ant-design/icons";
 
 const Header1 = ({ setLoc }) => {
   const [address, setAddress] = useState("");
@@ -11,7 +12,7 @@ const Header1 = ({ setLoc }) => {
   return (
     <>
       <div
-        className="row"
+        className="row mx-0"
         style={{
           width: "100%",
           position: "fixed",
@@ -21,7 +22,10 @@ const Header1 = ({ setLoc }) => {
       >
         <div className="renting-com col-md-7 px-0 text-center">
           <span className="px-20" style={{ marginLeft: "5%" }}>
-            Renting.com
+            <span className="homeIcon">
+              <HomeFilled />
+            </span>
+            <span className="px-1">Renting.com</span>
           </span>
         </div>
         <div className="col-md-5 px-0">

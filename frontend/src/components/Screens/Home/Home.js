@@ -2,7 +2,8 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Header1 from "../../Headers/Header1/Header1";
-import Houseshow from "../Houseshow/houseshow";
+import { Space, Spin } from "antd";
+import Houseshow from "../Houseshow/Houseshow.js";
 import "react-toastify/dist/ReactToastify.css";
 import "./styles.css";
 
@@ -54,7 +55,9 @@ const Home = () => {
             className="text-center"
             style={{ color: "grey", marginTop: "50px", fontSize: "22px" }}
           >
-            Loading...
+            <Space size="middle">
+              <Spin size="large" />
+            </Space>
           </div>
         ) : Houses.length === 0 ? (
           <div
@@ -64,7 +67,7 @@ const Home = () => {
             No houses present in this location.
           </div>
         ) : (
-          <div className="row justify-content-center">
+          <div className="houses row justify-content-center">
             {Houses.map((house) => (
               <div class="col-md-4 house">
                 <Houseshow house={house} />

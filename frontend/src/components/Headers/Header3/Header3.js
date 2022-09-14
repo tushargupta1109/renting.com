@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./styles.css";
+import { HomeFilled } from "@ant-design/icons";
 
 const Header1 = () => {
   const logoutSubmit = () => {
@@ -9,18 +10,22 @@ const Header1 = () => {
   return (
     <>
       <div
-        className="row"
+        className="row mx-0"
         style={{
           width: "100%",
           position: "fixed",
           zIndex: "2",
           backgroundColor: "#ace5ee",
+          top: "0",
         }}
       >
         <div className="renting-com col-md-7 px-0 text-center">
           <span className="px-20" style={{ marginLeft: "5%" }}>
             <Link to="/home" style={{ textDecoration: "none", color: "black" }}>
-              Renting.com
+              <span className="homeIcon">
+                <HomeFilled />
+              </span>
+              <span className="px-1">Renting.com</span>
             </Link>
           </span>
         </div>
