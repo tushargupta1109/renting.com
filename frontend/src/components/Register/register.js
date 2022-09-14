@@ -7,7 +7,7 @@ const register = () => {
   return (
     <>
       <Header2 />
-      <div className="row" style={{ background: "#f7f7f7" }}>
+      <div className="row">
         <div className="col-md-6 px-0">
           <Signin />
         </div>
