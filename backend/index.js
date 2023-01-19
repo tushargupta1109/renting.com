@@ -6,6 +6,7 @@ require("./db/mongoose");
 
 const app = express();
 app.use(cors());
+const port = process.env.PORT || 5000;
 
 app.use(express.json({ limit: "30mb", extended: true }));
 app.use(express.urlencoded({ limit: "30mb", extended: true }));
@@ -13,6 +14,7 @@ app.use(express.urlencoded({ limit: "30mb", extended: true }));
 app.use("/", UserRouter);
 app.use("/", HouseRouter);
 
-app.listen(5000, () => {
-  console.log("server is running on port 3000");
+app.listen(port, () => {
+  c;
+  onsole.log("server is running on port", port);
 });

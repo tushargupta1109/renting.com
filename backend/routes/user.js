@@ -21,7 +21,6 @@ router.post("/signin", async (req, res) => {
     );
     res.send(user._id);
   } catch (e) {
-    console.log(e)
     res.status(400).json({ message: e });
   }
 });

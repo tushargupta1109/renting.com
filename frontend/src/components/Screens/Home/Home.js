@@ -43,7 +43,6 @@ const Home = () => {
       <div style={{ position: "fixed", zIndex: "10" }}>
         <Header1 setLoc={setLoc} loc={loc} />
       </div>
-      <Header1 setLoc={setLoc} loc={loc} />
       {allHouses.map((house) => {
         if (house.owner !== loggedinPerson) {
           Houses.push(house);

@@ -59,7 +59,7 @@ const Profile = () => {
             className="text-center"
             style={{ color: "grey", marginTop: "50px", fontSize: "22px" }}
           >
-            You do not have house in this location.
+            You do not have any house.
           </div>
         ) : (
           <div className="row houses justify-content-center">

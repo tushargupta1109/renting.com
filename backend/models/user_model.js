@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const validator = require("validator");
 const bcrypt = require("bcryptjs");
 
 const userSchema = mongoose.Schema({
@@ -18,6 +17,15 @@ const userSchema = mongoose.Schema({
   },
 });
 
+userSchema.pre("save", async function (next) {
+  const user = this;
+
+  if (user.isModified("password")) {
+    user.password = await bcrypt.hash(user.password, 8);
+  }
+  next();
+});
+
 userSchema.statics.findByCredentials = async (email, password) => {
   const user = await User.findOne({ email });
   if (!user) {
@@ -29,16 +37,6 @@ userSchema.statics.findByCredentials = async (email, password) => {
   }
   return user;
 };
-
-
-userSchema.pre("save", async function (next) {
-  const user = this;
-
-  if (user.isModified("password")) {
-    user.password = await bcrypt.hash(user.password, 8);
-  }
-  next();
-});
 
 const User = mongoose.model("User", userSchema);
 

@@ -1,11 +1,18 @@
 const express = require("express");
 const House = require("../models/house_model");
 const router = express.Router();
-const auth = require("../middleware/auth");
 
 router.post("/add", async (req, res) => {
-  const { address, city, rent, detail, mobile, owner ,image} = req.body;
-  const house = new House({ address, city, rent, detail, mobile, owner,image }); 
+  const { address, city, rent, detail, mobile, owner, image } = req.body;
+  const house = new House({
+    address,
+    city,
+    rent,
+    detail,
+    mobile,
+    owner,
+    image,
+  });
   try {
     await house.save();
     res.send("Added Succesfully");
