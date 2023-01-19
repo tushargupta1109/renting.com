@@ -15,6 +15,5 @@ app.use("/", UserRouter);
 app.use("/", HouseRouter);
 
 app.listen(port, () => {
-  c;
-  onsole.log("server is running on port", port);
+  console.log("server is running on port", port);
 });
