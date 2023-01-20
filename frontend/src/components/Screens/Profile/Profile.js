@@ -5,11 +5,14 @@ import Header from "../../Headers/Header3/Header3";
 import { Space, Spin } from "antd";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
 import "./styles.css";
 
 const Profile = () => {
   const navigate = useNavigate();
-  const loggedinPerson = localStorage.getItem("tokenStore");
+  const loggedinPerson = JSON.parse(localStorage.getItem("tokenStore")).id;
+  const token = JSON.parse(localStorage.getItem("tokenStore")).token;
+
   const [allHouses, setAllHouses] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -22,10 +25,18 @@ const Profile = () => {
   const gethouses = async () => {
     const info = {
       location: "",
+      token: token,
     };
-    const res = await axios.post("/houses", info);
-    setAllHouses(res.data);
-    setIsLoading(false);
+    try {
+      const res = await axios.post("/houses", info);
+      setAllHouses(res.data);
+      setIsLoading(false);
+    } catch (err) {
+      toast.error("Authentication failed!", {
+        position: "top-center",
+        autoClose: 2000,
+      });
+    }
   };
 
   const myHouses = [];
@@ -71,6 +82,7 @@ const Profile = () => {
           </div>
         )}
       </div>
+      <ToastContainer />
     </>
   );
 };

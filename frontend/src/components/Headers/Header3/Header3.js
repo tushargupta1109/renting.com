@@ -5,7 +5,7 @@ import { HomeFilled } from "@ant-design/icons";
 
 const Header1 = () => {
   const logoutSubmit = () => {
-    localStorage.clear();
+    localStorage.removeItem("tokenStore");
   };
   return (
     <>

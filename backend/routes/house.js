@@ -1,8 +1,9 @@
 const express = require("express");
 const House = require("../models/house_model");
+const auth = require("../middleware/auth.js");
 const router = express.Router();
 
-router.post("/add", async (req, res) => {
+router.post("/add", auth, async (req, res) => {
   const { address, city, rent, detail, mobile, owner, image } = req.body;
   const house = new House({
     address,
@@ -21,7 +22,7 @@ router.post("/add", async (req, res) => {
   }
 });
 
-router.post("/houses", async (req, res) => {
+router.post("/houses", auth, async (req, res) => {
   const { location } = req.body;
   if (location) {
     try {
@@ -40,7 +41,7 @@ router.post("/houses", async (req, res) => {
   }
 });
 
-router.post("/remove", async (req, res) => {
+router.post("/remove", auth, async (req, res) => {
   const { id1, id2 } = req.body;
   try {
     const house = await House.findOneAndDelete({ _id: id1, owner: id2 });

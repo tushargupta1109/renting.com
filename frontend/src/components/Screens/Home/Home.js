@@ -5,18 +5,36 @@ import Header1 from "../../Headers/Header1/Header1";
 import { Space, Spin } from "antd";
 import Houseshow from "../Houseshow/Houseshow.js";
 import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from "react-toastify";
 import "./styles.css";
 
 const Home = () => {
   const Navigate = useNavigate();
-  const loggedinPerson = localStorage.getItem("tokenStore");
+  const [loggedinPerson, setLoggedinPerson] = useState("");
+  const [token, setToken] = useState("");
 
   const [allHouses, setAllHouses] = useState([]);
   const [loc, setLoc] = useState("");
   const [isLoading, setIsLoading] = useState(true);
 
-  const checklogin = () => {
+  const checklogin = async () => {
     if (localStorage.length === 0) {
+      Navigate("/");
+      return;
+    }
+    console.log(JSON.parse(localStorage.getItem("tokenStore")).token);
+    try {
+      const res = await axios.post(
+        "/verify",
+        JSON.parse(localStorage.getItem("tokenStore")).token
+      );
+      setLoggedinPerson(JSON.parse(localStorage.getItem("tokenStore")).id);
+      setToken(JSON.parse(localStorage.getItem("tokenStore")).token);
+    } catch (err) {
+      toast.error("Authentication failed!", {
+        position: "top-center",
+        autoClose: 2000,
+      });
       Navigate("/");
     }
   };
@@ -24,22 +42,31 @@ const Home = () => {
   const gethouses = async () => {
     const info = {
       location: loc,
+      token: token,
     };
-    const res = await axios.post("/houses", info);
-    setAllHouses(res.data);
-    setIsLoading(false);
+    console.log(info);
+    try {
+      const res = await axios.post("/houses", info);
+      setAllHouses(res.data);
+      setIsLoading(false);
+    } catch (err) {
+      toast.error("Authentication failed!", {
+        position: "top-center",
+        autoClose: 2000,
+      });
+    }
   };
 
   const Houses = [];
 
   useEffect(() => {
+    checklogin();
     setIsLoading(true);
     gethouses();
   }, [loc]);
 
   return (
     <>
-      {checklogin()}
       <div style={{ position: "fixed", zIndex: "10" }}>
         <Header1 setLoc={setLoc} loc={loc} />
       </div>
@@ -75,6 +102,7 @@ const Home = () => {
           </div>
         )}
       </div>
+      <ToastContainer />
     </>
   );
 };

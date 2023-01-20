@@ -20,12 +20,10 @@ const Signin = () => {
       email: user.email,
       password: user.password,
     };
-
     try {
       const res = await axios.post("/signin", userinfo);
       setUser({ email: "", password: "" });
-
-      localStorage.setItem("tokenStore", res.data);
+      localStorage.setItem("tokenStore", JSON.stringify(res.data));
       navigate("/home");
     } catch (err) {
       toast.error("Invalid Credentials!", {

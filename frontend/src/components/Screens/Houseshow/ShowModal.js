@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import axios from "axios";
 import { Modal } from "antd";
 import { ToastContainer, toast } from "react-toastify";
@@ -6,11 +6,14 @@ import "react-toastify/dist/ReactToastify.css";
 import "./Styles.css";
 
 const ShowModal = ({ show, setShow, house }) => {
-  const loggedinPerson = localStorage.getItem("tokenStore");
+  const loggedinPerson = JSON.parse(localStorage.getItem("tokenStore")).id;
+  const token = JSON.parse(localStorage.getItem("tokenStore")).token;
+
   const handleremove = async () => {
     const info = {
       id1: house.house._id,
       id2: loggedinPerson,
+      token: token,
     };
     try {
       await axios.post("/remove", info);
@@ -19,7 +22,7 @@ const ShowModal = ({ show, setShow, house }) => {
         autoClose: 2000,
       });
     } catch (e) {
-      toast.error(e, {
+      toast.error("Authentication failed!", {
         position: "top-center",
         autoClose: 2000,
       });

@@ -26,16 +26,18 @@ const Add_house = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const token = localStorage.getItem("tokenStore");
+    const token = JSON.parse(localStorage.getItem("tokenStore"));
 
+    console.log(token.id);
     const houseinfo = {
       address: house.address,
       city: house.city,
       rent: house.rent,
       detail: house.detail,
       mobile: house.mobile,
-      owner: token,
+      owner: token.id,
       image: house.image,
+      token: token.token,
     };
     try {
       const res = await axios.post("/add", houseinfo);
@@ -47,7 +49,7 @@ const Add_house = () => {
         navigate("/profile");
       }, 3000);
     } catch (err) {
-      toast.error("Invalid Details!", {
+      toast.error("Authentication failed!", {
         position: "top-center",
         autoClose: 2000,
       });
