@@ -16,7 +16,7 @@ const ShowModal = ({ show, setShow, house }) => {
       token: token,
     };
     try {
-      await axios.post("/remove", info);
+      await axios.post("https://renting11.onrender.com/remove", info);
       toast.success("Removed Successfully, Refresh the Page!", {
         position: "top-center",
         autoClose: 2000,

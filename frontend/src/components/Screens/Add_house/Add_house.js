@@ -29,7 +29,7 @@ const Add_house = () => {
       return;
     }
     try {
-      const res = await axios.post("/verify", {
+      const res = await axios.post("https://renting11.onrender.com/verify", {
         token: JSON.parse(localStorage.getItem("tokenStore")).token,
       });
     } catch (err) {
@@ -59,7 +59,10 @@ const Add_house = () => {
       token: token.token,
     };
     try {
-      const res = await axios.post("/add", houseinfo);
+      const res = await axios.post(
+        "https://renting11.onrender.com/add",
+        houseinfo
+      );
       toast.success("Added Successfully!", {
         position: "top-center",
         autoClose: 2000,

@@ -22,7 +22,7 @@ const Profile = () => {
       return;
     }
     try {
-      const res = await axios.post("/verify", {
+      const res = await axios.post("https://renting11.onrender.com/verify", {
         token: JSON.parse(localStorage.getItem("tokenStore")).token,
       });
       setLoggedinPerson(JSON.parse(localStorage.getItem("tokenStore")).id);
@@ -42,7 +42,7 @@ const Profile = () => {
       location: "",
       token: token,
     };
-    const res = await axios.post("/houses", info);
+    const res = await axios.post("https://renting11.onrender.com/houses", info);
     setAllHouses(res.data);
     setIsLoading(false);
   };

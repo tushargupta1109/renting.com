@@ -32,7 +32,10 @@ const Signup = () => {
       password: user.password,
     };
     try {
-      const res = await axios.post("/signup", userinfo);
+      const res = await axios.post(
+        "https://renting11.onrender.com/signup",
+        userinfo
+      );
       toast.success("Registered Successfully, login to enter!", {
         position: "top-center",
         autoClose: 2000,

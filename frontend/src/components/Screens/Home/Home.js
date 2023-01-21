@@ -24,7 +24,7 @@ const Home = () => {
     }
     console.log(JSON.parse(localStorage.getItem("tokenStore")).token);
     try {
-      const res = await axios.post("/verify", {
+      const res = await axios.post("https://renting11.onrender.com/verify", {
         token: JSON.parse(localStorage.getItem("tokenStore")).token,
       });
       setLoggedinPerson(JSON.parse(localStorage.getItem("tokenStore")).id);
@@ -44,7 +44,7 @@ const Home = () => {
       location: loc,
       token,
     };
-    const res = await axios.post("/houses", info);
+    const res = await axios.post("https://renting11.onrender.com/houses", info);
     setAllHouses(res.data);
     setIsLoading(false);
   };
