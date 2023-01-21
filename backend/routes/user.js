@@ -28,7 +28,6 @@ router.post("/signin", async (req, res) => {
 });
 
 router.post("/verify", auth, async (req, res) => {
-  console.log("mm");
   try {
     res.send("Verified Succesfully");
   } catch (e) {

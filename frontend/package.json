@@ -44,5 +44,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://renting.adaptable.app"
+  "proxy": "http://localhost:5000"
 }

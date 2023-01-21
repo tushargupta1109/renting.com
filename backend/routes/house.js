@@ -22,7 +22,7 @@ router.post("/add", auth, async (req, res) => {
   }
 });
 
-router.post("/houses", auth, async (req, res) => {
+router.post("/houses", async (req, res) => {
   const { location } = req.body;
   if (location) {
     try {

@@ -24,10 +24,9 @@ const Home = () => {
     }
     console.log(JSON.parse(localStorage.getItem("tokenStore")).token);
     try {
-      const res = await axios.post(
-        "/verify",
-        JSON.parse(localStorage.getItem("tokenStore")).token
-      );
+      const res = await axios.post("/verify", {
+        token: JSON.parse(localStorage.getItem("tokenStore")).token,
+      });
       setLoggedinPerson(JSON.parse(localStorage.getItem("tokenStore")).id);
       setToken(JSON.parse(localStorage.getItem("tokenStore")).token);
     } catch (err) {
@@ -35,6 +34,7 @@ const Home = () => {
         position: "top-center",
         autoClose: 2000,
       });
+      localStorage.removeItem("tokenStore");
       Navigate("/");
     }
   };
@@ -42,19 +42,11 @@ const Home = () => {
   const gethouses = async () => {
     const info = {
       location: loc,
-      token: token,
+      token,
     };
-    console.log(info);
-    try {
-      const res = await axios.post("/houses", info);
-      setAllHouses(res.data);
-      setIsLoading(false);
-    } catch (err) {
-      toast.error("Authentication failed!", {
-        position: "top-center",
-        autoClose: 2000,
-      });
-    }
+    const res = await axios.post("/houses", info);
+    setAllHouses(res.data);
+    setIsLoading(false);
   };
 
   const Houses = [];

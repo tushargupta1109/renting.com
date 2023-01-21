@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header2 from "../../Headers/Header2/header2";
 import FileBase64 from "react-file-base64";
 import { useNavigate } from "react-router-dom";
@@ -21,6 +21,25 @@ const Add_house = () => {
   const onChangeInput = (e) => {
     const { name, value } = e.target;
     setHouse({ ...house, [name]: value });
+  };
+
+  const checklogin = async () => {
+    if (localStorage.length === 0) {
+      navigate("/");
+      return;
+    }
+    try {
+      const res = await axios.post("/verify", {
+        token: JSON.parse(localStorage.getItem("tokenStore")).token,
+      });
+    } catch (err) {
+      toast.error("Authentication failed!", {
+        position: "top-center",
+        autoClose: 2000,
+      });
+      localStorage.removeItem("tokenStore");
+      navigate("/");
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -55,6 +74,11 @@ const Add_house = () => {
       });
     }
   };
+
+  useEffect(() => {
+    checklogin();
+  }, []);
+
   return (
     <>
       <Header2 />
