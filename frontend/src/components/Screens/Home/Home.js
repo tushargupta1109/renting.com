@@ -6,6 +6,7 @@ import { Space, Spin } from "antd";
 import Houseshow from "../Houseshow/Houseshow.js";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
+import logo from "../../Images/logo.jpg";
 import "./styles.css";
 
 const Home = () => {
@@ -71,18 +72,28 @@ const Home = () => {
         {isLoading ? (
           <div
             className="text-center"
-            style={{ color: "grey", marginTop: "50px", fontSize: "22px" }}
+            style={{ color: "grey", marginTop: "100px", fontSize: "30px" }}
           >
             <Space size="middle">
               <Spin size="large" />
             </Space>
           </div>
         ) : Houses.length === 0 ? (
-          <div
-            className="text-center"
-            style={{ color: "grey", marginTop: "50px", fontSize: "22px" }}
-          >
-            No houses present in this location.
+          <div className="row pt-4">
+            <div
+              className="col-md-6 text-center"
+              style={{
+                color: "grey",
+                marginTop: "150px",
+                marginBottom: "100px",
+                fontSize: "28px",
+              }}
+            >
+              No houses present in this location.
+            </div>
+            <div className="col-md-6 text-center">
+              <img src={logo} width="90%" />
+            </div>
           </div>
         ) : (
           <div className="houses row justify-content-center">

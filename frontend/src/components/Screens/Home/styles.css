@@ -2,6 +2,10 @@
   padding-top: 60px;
 }
 
+.row{
+  --bs-gutter-x:0;
+}
+
 .house {
   padding: 25px;
 }

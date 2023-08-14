@@ -6,6 +6,7 @@ import { Space, Spin } from "antd";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
+import logo from "../../Images/logo.jpg";
 import "./styles.css";
 
 const Profile = () => {
@@ -68,18 +69,28 @@ const Profile = () => {
         {isLoading ? (
           <div
             className="text-center"
-            style={{ color: "grey", marginTop: "50px", fontSize: "22px" }}
+            style={{ color: "grey", marginTop: "100px", fontSize: "30px" }}
           >
             <Space size="middle">
               <Spin size="large" />
             </Space>
           </div>
         ) : myHouses.length === 0 ? (
-          <div
-            className="text-center"
-            style={{ color: "grey", marginTop: "50px", fontSize: "22px" }}
-          >
-            You do not have any house.
+          <div className="row pt-4">
+            <div
+              className="col-md-6 text-center"
+              style={{
+                color: "grey",
+                marginTop: "150px",
+                marginBottom: "100px",
+                fontSize: "28px",
+              }}
+            >
+              You do not have any house.
+            </div>
+            <div className="col-md-6 text-center">
+              <img src={logo} width="90%" />
+            </div>
           </div>
         ) : (
           <div className="row houses justify-content-center">
