@@ -2,10 +2,12 @@ import React from "react";
 import axios from "axios";
 import { Modal } from "antd";
 import { ToastContainer, toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import "./Styles.css";
 
 const ShowModal = ({ show, setShow, house }) => {
+  const navigate = useNavigate();
   const loggedinPerson = JSON.parse(localStorage.getItem("tokenStore")).id;
   const token = JSON.parse(localStorage.getItem("tokenStore")).token;
 
@@ -17,10 +19,14 @@ const ShowModal = ({ show, setShow, house }) => {
     };
     try {
       await axios.post("https://renting11.onrender.com/remove", info);
-      toast.success("Removed Successfully, Refresh the Page!", {
+      toast.success("Removed Successfully!", {
         position: "top-center",
         autoClose: 2000,
       });
+      setTimeout(() => {
+        navigate("/home");
+        navigate("/profile");
+      }, 3000);
     } catch (e) {
       toast.error("Authentication failed!", {
         position: "top-center",

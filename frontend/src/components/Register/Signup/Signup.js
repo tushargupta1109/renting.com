@@ -50,7 +50,7 @@ const Signup = () => {
   return (
     <>
       <div className="body">
-        <h2 className="text-center mb-0">I do not have a account</h2>
+        <h2 className="text-center mb-0">I do not have an account</h2>
         <div className="text-center">Sign up with your email and password</div>
         <form
           className="d-flex flex-column pt-5 text-center"

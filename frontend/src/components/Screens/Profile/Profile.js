@@ -16,6 +16,7 @@ const Profile = () => {
 
   const [allHouses, setAllHouses] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [changeOccured, setchangeOccured] = useState(false);
 
   const checklogin = async () => {
     if (localStorage.length === 0) {
@@ -46,6 +47,7 @@ const Profile = () => {
     const res = await axios.post("https://renting11.onrender.com/houses", info);
     setAllHouses(res.data);
     setIsLoading(false);
+    changeOccured(false);
   };
 
   const myHouses = [];
